@@ -1,0 +1,352 @@
+# TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-28_04-34-10
+# TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-28_04-35-19
+# TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-28_04-35-43
+# ZprimeToTT_M1000_W10_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-20
+# ZprimeToTT_M1000_W100_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-30
+# ZprimeToTT_M1000_W300_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-39
+# ZprimeToTT_M1250_W12p5_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-41
+# ZprimeToTT_M1250_W125_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-44
+# ZprimeToTT_M1250_W375_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-46
+# ZprimeToTT_M1500_W15_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-52
+# ZprimeToTT_M1500_W150_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-55
+# ZprimeToTT_M1500_W450_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-57
+# ZprimeToTT_M2000_W20_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-59
+# ZprimeToTT_M2000_W200_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-02
+# ZprimeToTT_M2000_W600_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-04
+# ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-05
+# ZprimeToTT_M3000_W300_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-07
+# ZprimeToTT_M3000_W900_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-11
+# ZprimeToTT_M3500_W35_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-13
+# ZprimeToTT_M3500_W350_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-15
+# ZprimeToTT_M3500_W1050_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-18
+# ZprimeToTT_M4000_W40_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-21
+# ZprimeToTT_M4000_W400_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-23
+# ZprimeToTT_M4000_W1200_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-28
+# ZprimeToTT_M5000_W50_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_18-53-27
+# ZprimeToTT_M5000_W500_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_18-53-32
+# ZprimeToTT_M5000_W1500_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_18-53-35
+# Wprimetotb_M3000W30_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2_MINIAODSIM:2022-03-02_18-59-59
+# Wprimetotb_M3000W30_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-03
+# Wprimetotb_M3200W32_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-09
+# Wprimetotb_M3200W32_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-12
+# Wprimetotb_M3200W320_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-16
+# Wprimetotb_M3200W320_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-20
+# Wprimetotb_M3200W640_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-24
+# Wprimetotb_M3200W640_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-27
+# Wprimetotb_M3200W960_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-32
+# Wprimetotb_M3200W960_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-34
+# Wprimetotb_M3400W34_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-38
+# Wprimetotb_M3400W34_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-42
+# Wprimetotb_M3600W36_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-45
+# Wprimetotb_M3600W36_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-49
+# Wprimetotb_M3600W360_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-52
+# Wprimetotb_M3600W360_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-00-56
+# Wprimetotb_M3600W720_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-01-00
+# Wprimetotb_M3600W720_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-01-05
+# Wprimetotb_M3600W1080_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-01-08
+# Wprimetotb_M3600W1080_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-01-13
+# Wprimetotb_M3800W38_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-01-19
+# Wprimetotb_M3800W38_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-01-23
+# Wprimetotb_M4000W40_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-32-08
+# Wprimetotb_M4000W40_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-03
+# Wprimetotb_M4000W400_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-07
+# Wprimetotb_M4000W400_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-11
+# Wprimetotb_M4000W800_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-15
+# Wprimetotb_M4000W800_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-19
+# Wprimetotb_M4000W1200_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-22
+# Wprimetotb_M4000W1200_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-26
+# Wprimetotb_M4200W42_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-29
+# Wprimetotb_M4200W42_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-33
+# Wprimetotb_M4400W44_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-36
+# Wprimetotb_M4400W44_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-38
+# Wprimetotb_M4400W440_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-42
+# Wprimetotb_M4400W440_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-46
+# Wprimetotb_M4400W880_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-50
+# Wprimetotb_M4400W880_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-54
+# Wprimetotb_M4400W1320_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-57
+# Wprimetotb_M4400W1320_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-01
+# Wprimetotb_M4600W46_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-04
+# Wprimetotb_M4600W46_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-08
+# Wprimetotb_M4800W48_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-11
+# Wprimetotb_M4800W48_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-16
+# Wprimetotb_M4800W480_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-20
+# Wprimetotb_M4800W480_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-23
+# Wprimetotb_M4800W960_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-27
+# Wprimetotb_M4800W960_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-30
+# Wprimetotb_M4800W1440_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-33
+# Wprimetotb_M4800W1440_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-34-37
+# Wprimetotb_M5000W50_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_11-58-49
+# Wprimetotb_M5000W50_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_11-59-15
+# Wprimetotb_M5200W52_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-00-30
+# Wprimetotb_M5200W52_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-00-40
+# Wprimetotb_M5200W520_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-00-43
+# Wprimetotb_M5200W520_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-00-47
+# Wprimetotb_M5200W1040_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-00-51
+# Wprimetotb_M5200W1040_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-00-57
+# Wprimetotb_M5200W1560_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-00
+# Wprimetotb_M5200W1560_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-08
+# Wprimetotb_M5400W54_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-10
+# Wprimetotb_M5400W54_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-16
+# Wprimetotb_M5600W56_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-20
+# Wprimetotb_M5600W56_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-30
+# Wprimetotb_M5600W560_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-36
+# Wprimetotb_M5600W560_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-39
+# Wprimetotb_M5600W1120_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-53
+# Wprimetotb_M5600W1120_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-01-57
+# Wprimetotb_M5600W1680_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-06
+# Wprimetotb_M5600W1680_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-09
+# Wprimetotb_M5800W58_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-12
+# Wprimetotb_M5800W58_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-15
+# Wprimetotb_M6000W60_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-19
+# Wprimetotb_M6000W60_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-23
+# Wprimetotb_M6000W600_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-26
+# Wprimetotb_M6000W600_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-30
+# Wprimetotb_M6000W1200_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-33
+# Wprimetotb_M6000W1200_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-35
+# Wprimetotb_M6000W1800_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-38
+# Wprimetotb_M6000W1800_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-42
+# 
+# QCD_Pt_170to300_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_15-17-36
+# QCD_Pt_300to470_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_15-17-38
+# QCD_Pt_470to600_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_15-17-40
+# QCD_Pt_600to800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_15-17-44
+# QCD_Pt_800to1000_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-20-55
+# QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_19-21-01
+# QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-21-06
+# QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-21-15
+# QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-21-33
+
+
+samples:
+    
+    TTJets_HT-800to1200:
+        names:
+            - "TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-28_04-34-10"
+        weights:
+            - 1.0
+    
+    TTJets_HT-1200to2500:
+        names:
+            - "TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-28_04-35-19"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M1000_W10:
+        names:
+            - "ZprimeToTT_M1000_W10_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-20"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M2000_W20:
+        names:
+            - "ZprimeToTT_M2000_W20_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-16-59"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M3000_W30:
+        names:
+            - "ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-05"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M4000_W40:
+        names:
+            - "ZprimeToTT_M4000_W40_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_14-17-21"
+        weights:
+            - 1.0
+    
+    Wprimetotb_M4000W40:
+        names:
+            - "Wprimetotb_M4000W40_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-32-08"
+            - "Wprimetotb_M4000W40_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-02_19-33-03"
+        weights:
+            - 1.0
+            - 1.0
+    
+    Wprimetotb_M6000W60:
+        names:
+            - "Wprimetotb_M6000W60_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-19"
+            - "Wprimetotb_M6000W60_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-03-03_12-02-23"
+        weights:
+            - 1.0
+            - 1.0
+    
+    QCD:
+        names:
+            #- "QCD_Pt_170to300_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_15-17-36"
+            - "QCD_Pt_300to470_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_15-17-38"
+            - "QCD_Pt_470to600_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_15-17-40"
+            - "QCD_Pt_600to800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_15-17-44"
+            - "QCD_Pt_800to1000_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-20-55"
+            - "QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-02-26_19-21-01"
+            - "QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-21-06"
+            - "QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-21-15"
+            - "QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-02-26_19-21-33"
+        weights:
+            #- 103300.0
+            - 6826.0
+            - 552.6
+            - 156.6
+            - 26.32
+            - 7.5
+            - 0.6479
+            - 0.08715
+            - 0.005242
+
+friendlist: null
+
+curves:
+    #-   label: "t^{lep} (t#bar{t}: 800<H_{T}<1200 GeV) vs. QCD"
+    #    sig:
+    #        sample:         "TTJets_HT-800to1200"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+    #    bkg:
+    #        sample:         "QCD"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+    #    friends:
+    #        -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18"
+    #            tag:                null
+    #            #usefriendlist:      "pnet"
+    #            tree:               "tree"
+    #    vardict:
+    #        jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+    #    classifier:     "epoch21_ltop_vs_qcd"
+    #    classifiercut:  "{classifier} > {value}"
+    #    color: 4
+    #    linestyle: 1
+    #
+    #-   label: "t^{lep} (t#bar{t}: 1200<H_{T}<2500 GeV) vs. QCD"
+    #    sig:
+    #        sample:         "TTJets_HT-1200to2500"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+    #    bkg:
+    #        sample:         "QCD"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+    #    friends:
+    #        -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18"
+    #            tag:                null
+    #            #usefriendlist:      "pnet"
+    #            tree:               "tree"
+    #    vardict:
+    #        jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+    #    classifier:     "epoch21_ltop_vs_qcd"
+    #    classifiercut:  "{classifier} > {value}"
+    #    color: 8
+    #    linestyle: 1
+    #
+    #-   label: "t^{lep} (Z'_{2 TeV}) vs. QCD"
+    #    sig:
+    #        sample:         "ZprimeToTT_M2000_W20"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+    #    bkg:
+    #        sample:         "QCD"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+    #    friends:
+    #        -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18"
+    #            tag:                null
+    #            #usefriendlist:      "pnet"
+    #            tree:               "tree"
+    #    vardict:
+    #        jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+    #    classifier:     "epoch21_ltop_vs_qcd"
+    #    classifiercut:  "{classifier} > {value}"
+    #    color: 2
+    #    linestyle: 1
+    #
+    #-   label: "t^{lep} (Z'_{4 TeV}) vs. QCD"
+    #    sig:
+    #        sample:         "ZprimeToTT_M4000_W40"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+    #    bkg:
+    #        sample:         "QCD"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+    #    friends:
+    #        -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18"
+    #            tag:                null
+    #            #usefriendlist:      "pnet"
+    #            tree:               "tree"
+    #    vardict:
+    #        jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+    #    classifier:     "epoch21_ltop_vs_qcd"
+    #    classifiercut:  "{classifier} > {value}"
+    #    color: 6
+    #    linestyle: 1
+    #
+    #-   label: "t^{lep} (W'_{4 TeV}) vs. QCD"
+    #    sig:
+    #        sample:         "Wprimetotb_M4000W40"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+    #    bkg:
+    #        sample:         "QCD"
+    #        tree:           "treeMaker/tree"
+    #        source:         "sourceFiles/{sample}_{tag}.txt"
+    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+    #    friends:
+    #        -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18"
+    #            tag:                null
+    #            #usefriendlist:      "pnet"
+    #            tree:               "tree"
+    #    vardict:
+    #        jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+    #    classifier:     "epoch21_ltop_vs_qcd"
+    #    classifiercut:  "{classifier} > {value}"
+    #    color: 7
+    #    linestyle: 1
+    
+    -   label: "t^{lep} (W'_{6 TeV}) vs. QCD"
+        sig:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+        bkg:
+            sample:         "QCD"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+        classifier:     "epoch21_ltop_vs_qcd"
+        classifiercut:  "{classifier} > {value}"
+        color: 9
+        linestyle: 1
+
+xtitle: "Signal efficiency"
+ytitle: "Background efficiency"
+xrange:
+    - 0.0
+    - 1.0
+yrange:
+    - 1.0e-6
+    - 1.0
+logx: false
+logy: true
+gridx: true
+gridy: true
+legendpos: "UL"
+legendtextsize: 0.04
+cpufrac: 0.9
+outfile: "plots/ROCs/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18/ROC.pdf"

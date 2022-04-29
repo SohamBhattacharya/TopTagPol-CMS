@@ -1,0 +1,51 @@
+tensorboard --port 6006 --reload_multifile True \
+--logdir_spec \
+pnet_lite_more:training_results/tensorboard/particle_net_lite_more-features_2022-02-19_17-02-07,\
+pnet_min:training_results/tensorboard/particle_net_minimal-features_2022-02-22_19-17-55,\
+pnet_more:training_results/tensorboard/particle_net_more-features_2022-02-22_19-15-58,\
+pnet_more_wxy:training_results/tensorboard/particle_net_more-features-with-xy_2022-02-22_22-59-41,\
+pnet_more_wxy_lessQCD:training_results/tensorboard/particle_net_more-features-with-xy_400K-per-QCD_2022-02-23_09-56-18,\
+pnet_more_wxy_2:training_results/tensorboard/particle_net_more-features-with-xy_500K-per-QCD_with-TTJets-HT-800to1200_2022-02-23_23-03-31
+
+
+
+tensorboard --port 6006 --reload_multifile True \
+--logdir_spec \
+pnet_mod1:training_results/tensorboard/particle_net_mod1_with-Wprimetotb_2022-03-07_13-37-34,\
+pnet_mod1_ak8:training_results/tensorboard/particle_net_mod1_ak8_2022-03-08_16-28-43,\
+pnet_mod1_wjm:training_results/tensorboard/particle_net_mod1_with-jetMass_2022-03-11_17-55-18
+
+
+tensorboard --port 6006 --reload_multifile True --max_reload_threads 10 \
+--logdir_spec \
+pnet_mod1:training_results/tensorboard/particle_net_mod1_with-Wprimetotb_2022-03-07_13-37-34,\
+pnet_mod1_ext1:training_results/tensorboard/particle_net_mod1_with-Wprimetotb_2022-03-07_13-37-34_ext1,\
+pnet_mod1_ext1-v1:training_results/tensorboard/particle_net_mod1_with-Wprimetotb_2022-03-07_13-37-34_ext1-v1,\
+pnet_mod1_ext1-v2:training_results/tensorboard/particle_net_mod1_with-Wprimetotb_2022-03-07_13-37-34_ext1-v2,\
+pnet_mod1_ak8:training_results/tensorboard/particle_net_mod1_ak8_2022-03-21_12-31-03
+
+pnet_mod1_wjm:training_results/tensorboard/particle_net_mod1_with-jetMass_2022-03-11_17-55-18
+
+tensorboard --port 6006 --reload_multifile True --max_reload_threads 10 \
+--logdir_spec \
+pnet_mod1_ak8:training_results/tensorboard/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18,\
+pnet_mod2_ak8:training_results/tensorboard/particle_net_mod2_ak8_2022-03-31_12-08-48,\
+pnet_mod2_ak8_wJF:training_results/tensorboard/particle_net_mod2_ak8_with-jetFeatures_2022-03-31_12-10-31,\
+pnet_mod2_ak8_focal:training_results/tensorboard/particle_net_mod2_ak8_focal-loss_2022-04-04_15-00-09
+
+
+tensorboard --port 6006 --reload_multifile True --max_reload_threads 10 \
+--logdir_spec \
+pnet_mod1_ak8:training_results/tensorboard/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18,\
+pnet_mod2_ak8:training_results/tensorboard/particle_net_mod2_ak8_2022-03-31_12-08-48,\
+pnet_mod1a_ak8_wSV:training_results/tensorboard/particle_net_mod1a_ak8_with-SV_2022-04-07_20-47-27,\
+pnet_mod1b_ak8:training_results/tensorboard/particle_net_mod1b_ak8_2022-04-09_16-24-46
+
+tensorboard --port 6006 --reload_multifile True --max_reload_threads 10 \
+--logdir_spec \
+pnet_mod1_ak8:training_results/tensorboard/particle_net_mod1_ak8_with-pt-eta-reweighting_2022-03-22_19-47-18,\
+pnet_mod2_ak8:training_results/tensorboard/particle_net_mod2_ak8_2022-03-31_12-08-48,\
+pnet_mod1a_wSV:training_results/tensorboard/particle_net_mod1a_ak8_with-SV_2022-04-07_20-47-27,\
+pnet_mod1a_wSV_no-pt-eta:training_results/tensorboard/particle_net_mod1a_ak8_with-SV_no-pt-eta-reweighting_2022-04-08_17-12-27,\
+pnet_mod1b_ak8:training_results/tensorboard/particle_net_mod1b_ak8_2022-04-09_16-24-46,\
+pnet_mod1b_ak8_no-pt-eta:training_results/tensorboard/particle_net_mod1b_ak8_no-pt-eta-reweighting_2022-04-09_20-53-02

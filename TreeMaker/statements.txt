@@ -1,0 +1,120 @@
+sprintf(name, "genTop_b_id");
+tree->Branch(name, &v_genTop_b_id);
+
+sprintf(name, "genTop_b_E");
+tree->Branch(name, &v_genTop_b_E);
+
+sprintf(name, "genTop_b_px");
+tree->Branch(name, &v_genTop_b_px);
+
+sprintf(name, "genTop_b_py");
+tree->Branch(name, &v_genTop_b_py);
+
+sprintf(name, "genTop_b_pz");
+tree->Branch(name, &v_genTop_b_pz);
+
+sprintf(name, "genTop_b_pT");
+tree->Branch(name, &v_genTop_b_pT);
+
+sprintf(name, "genTop_b_eta");
+tree->Branch(name, &v_genTop_b_eta);
+
+sprintf(name, "genTop_b_y");
+tree->Branch(name, &v_genTop_b_y);
+
+sprintf(name, "genTop_b_phi");
+tree->Branch(name, &v_genTop_b_phi);
+
+sprintf(name, "genTop_b_m");
+tree->Branch(name, &v_genTop_b_m);
+
+sprintf(name, "genTop_Wq1_id");
+tree->Branch(name, &v_genTop_Wq1_id);
+
+sprintf(name, "genTop_Wq1_E");
+tree->Branch(name, &v_genTop_Wq1_E);
+
+sprintf(name, "genTop_Wq1_px");
+tree->Branch(name, &v_genTop_Wq1_px);
+
+sprintf(name, "genTop_Wq1_py");
+tree->Branch(name, &v_genTop_Wq1_py);
+
+sprintf(name, "genTop_Wq1_pz");
+tree->Branch(name, &v_genTop_Wq1_pz);
+
+sprintf(name, "genTop_Wq1_pT");
+tree->Branch(name, &v_genTop_Wq1_pT);
+
+sprintf(name, "genTop_Wq1_eta");
+tree->Branch(name, &v_genTop_Wq1_eta);
+
+sprintf(name, "genTop_Wq1_y");
+tree->Branch(name, &v_genTop_Wq1_y);
+
+sprintf(name, "genTop_Wq1_phi");
+tree->Branch(name, &v_genTop_Wq1_phi);
+
+sprintf(name, "genTop_Wq1_m");
+tree->Branch(name, &v_genTop_Wq1_m);
+
+sprintf(name, "genTop_Wq2_id");
+tree->Branch(name, &v_genTop_Wq2_id);
+
+sprintf(name, "genTop_Wq2_E");
+tree->Branch(name, &v_genTop_Wq2_E);
+
+sprintf(name, "genTop_Wq2_px");
+tree->Branch(name, &v_genTop_Wq2_px);
+
+sprintf(name, "genTop_Wq2_py");
+tree->Branch(name, &v_genTop_Wq2_py);
+
+sprintf(name, "genTop_Wq2_pz");
+tree->Branch(name, &v_genTop_Wq2_pz);
+
+sprintf(name, "genTop_Wq2_pT");
+tree->Branch(name, &v_genTop_Wq2_pT);
+
+sprintf(name, "genTop_Wq2_eta");
+tree->Branch(name, &v_genTop_Wq2_eta);
+
+sprintf(name, "genTop_Wq2_y");
+tree->Branch(name, &v_genTop_Wq2_y);
+
+sprintf(name, "genTop_Wq2_phi");
+tree->Branch(name, &v_genTop_Wq2_phi);
+
+sprintf(name, "genTop_Wq2_m");
+tree->Branch(name, &v_genTop_Wq2_m);
+
+sprintf(name, "genTop_Wlep_id");
+tree->Branch(name, &v_genTop_Wlep_id);
+
+sprintf(name, "genTop_Wlep_E");
+tree->Branch(name, &v_genTop_Wlep_E);
+
+sprintf(name, "genTop_Wlep_px");
+tree->Branch(name, &v_genTop_Wlep_px);
+
+sprintf(name, "genTop_Wlep_py");
+tree->Branch(name, &v_genTop_Wlep_py);
+
+sprintf(name, "genTop_Wlep_pz");
+tree->Branch(name, &v_genTop_Wlep_pz);
+
+sprintf(name, "genTop_Wlep_pT");
+tree->Branch(name, &v_genTop_Wlep_pT);
+
+sprintf(name, "genTop_Wlep_eta");
+tree->Branch(name, &v_genTop_Wlep_eta);
+
+sprintf(name, "genTop_Wlep_y");
+tree->Branch(name, &v_genTop_Wlep_y);
+
+sprintf(name, "genTop_Wlep_phi");
+tree->Branch(name, &v_genTop_Wlep_phi);
+
+sprintf(name, "genTop_Wlep_m");
+tree->Branch(name, &v_genTop_Wlep_m);
+

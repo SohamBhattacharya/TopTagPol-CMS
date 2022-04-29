@@ -1,0 +1,7 @@
+rsync -asP --no-perms --no-owner --no-group --exclude "*.root" --exclude "*__init__*" --exclude "*.svn*" --exclude "*fuse*" --exclude "weights/*" --exclude "temp/*" --exclude "*cmsShow*" --exclude "plots/*" --exclude "documentation/*" --exclude "*sourceFiles*" --exclude "*.pdf" --exclude "*.png" --exclude "*.log" --exclude "*.pyc" --exclude "*_cc.*" --exclude "*.pcm" ./* sobhatta@naf-cms.desy.de:/nfs/dust/cms/user/sobhatta/work/TopTagPol/TreeMaker/CMSSW_10_5_0/src/
+
+`dasgoclient -query="dataset=/TTJets*HT*/*RunIIAutumn18MiniAOD*/MINIAODSIM" | sort -V`
+
+dasgoclient -query="dataset=/*Z*/RunIIAutumn18MiniAOD*/MINIAODSIM" | sort -V | grep ZprimeToZhToZhad | grep madgraph-pythia8 | egrep -v M-4500|M-5000|M-5500|M-6000|M-6500|M-6500|M-7000|M-7500|M-8000
+
+rucio list-rules --account $RUCIO_ACCOUNT | grep Zlep | awk '{print $3}' | awk -F: '{print $2}' | sort -V

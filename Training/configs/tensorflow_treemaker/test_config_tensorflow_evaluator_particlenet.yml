@@ -1,0 +1,73 @@
+treemaker: "python/tensorflow_treemaker_GNN.py"
+modelDir: "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/model_checkpoints"
+modelName: "particle_net_mod1b_ak8_2022-04-09_16-24-46"
+modelConfig: "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/condor_jobs/training/particle_net_mod1b_ak8_2022-04-09_16-24-46/test_config_particlenet_debug_3.yml"
+modelFiles:
+    epoch12: "weights_epoch-12.hdf5"
+classifiers:
+    ltop_vs_qcd: "{node0}/({node0}+{node1})"
+samples:
+# 2018
+    #- "sourceFiles/TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_02-30-09.txt:treeMaker/tree"
+    #- "sourceFiles/TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_02-31-42.txt:treeMaker/tree"
+    #- "sourceFiles/TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_02-32-13.txt:treeMaker/tree"
+    #
+    #- "sourceFiles/ZprimeToTT_M1000_W10_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-51-22.txt:treeMaker/tree"
+    #- "sourceFiles/ZprimeToTT_M2000_W20_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-51-53.txt:treeMaker/tree"
+    #- "sourceFiles/ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-52-02.txt:treeMaker/tree"
+    #- "sourceFiles/ZprimeToTT_M4000_W40_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-52-21.txt:treeMaker/tree"
+    #- "sourceFiles/ZprimeToTT_M5000_W50_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-52-34.txt:treeMaker/tree"
+    #
+    #- "sourceFiles/Wprimetotb_M3000W30_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2_MINIAODSIM_2022-04-05_15-53-12.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M3000W30_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-53-17.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M4000W40_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-54-46.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M4000W40_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-54-50.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M5000W50_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-57-37.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M5000W50_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-57-42.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M6000W60_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-59-46.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M6000W60_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-59-51.txt:treeMaker/tree"
+    #
+    ##- "sourceFiles/QCD_Pt_170to300_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_01-19-55.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_300to470_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_01-19-59.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_470to600_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM_2022-04-06_01-20-03.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_600to800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_01-20-11.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_800to1000_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM_2022-04-06_01-20-25.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-06_01-20-32.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM_2022-04-06_01-20-40.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM_2022-04-06_01-20-47.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM_2022-04-06_01-21-15.txt:treeMaker/tree"
+    
+    
+# 2017
+    - "sourceFiles/ZprimeToTT_M2000_W20_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v1_MINIAODSIM_2022-04-23_17-55-38.txt:treeMaker/tree"
+    - "sourceFiles/ZprimeToTT_M3000_W30_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v1_MINIAODSIM_2022-04-23_17-55-43.txt:treeMaker/tree"
+    - "sourceFiles/ZprimeToTT_M4000_W40_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v1_MINIAODSIM_2022-04-23_17-55-46.txt:treeMaker/tree"
+    - "sourceFiles/ZprimeToTT_M5000_W50_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v1_MINIAODSIM_2022-04-23_17-55-48.txt:treeMaker/tree"
+    - "sourceFiles/ZprimeToTT_M6000_W60_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v1_MINIAODSIM_2022-04-23_17-55-51.txt:treeMaker/tree"
+    
+    #- "sourceFiles/Wprimetotb_M3000W30_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_MINIAODSIM_2022-04-22_12-08-46.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M3000W30_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-08-51.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M4000W40_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-08-57.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M4000W40_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-09-02.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M5000W50_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-09-15.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M5000W50_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-09-22.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M6000W60_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-09-32.txt:treeMaker/tree"
+    #- "sourceFiles/Wprimetotb_M6000W60_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-09-39.txt:treeMaker/tree"
+    
+    #- "sourceFiles/QCD_Pt_170to300_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-28.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_300to470_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-32.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_470to600_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-35.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_600to800_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-38.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_800to1000_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-41.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-44.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-48.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-53.txt:treeMaker/tree"
+    #- "sourceFiles/QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8_RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1_MINIAODSIM_2022-04-22_12-10-57.txt:treeMaker/tree"
+
+printEvery: 1000
+cpuFrac: 0.99
+outputDirBase: "training_results/classifier_trees"
+condordir: "training_results/condor_jobs/treemaker"
+condorconfig: "configs/condor/condor_config_template_general.submit"
+condorscript: "scripts/condor/condor_script_template_general.sh"
+outputTag: ""

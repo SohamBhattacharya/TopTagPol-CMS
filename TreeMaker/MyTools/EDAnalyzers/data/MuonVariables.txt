@@ -1,0 +1,22 @@
+# Variables are given line by line. The columns of each entry correspond to:
+#
+#     1. The name under which the variable appears in the weight files.
+#     2. How to get this variable from the electron with the cut parser (NO SPACES!)
+#        or if not available, how to get the variables elsewhere.
+#     3. The lower clip value for the variable to avoid crazy values. "None" if no clip.
+#     4. The upper clip value.
+#
+
+
+mu_pt                               pt                                                      None        None
+mu_eta                              eta                                                     None        None
+mu_segCompat                        segmentCompatibility                                    None        None
+mu_normChi2                         globalTrack.normalizedChi2                              None        None
+mu_nValidMuonHits                   globalTrack.hitPattern.numberOfValidMuonHits            None        None
+mu_nMatchedStations                 numberOfMatchedStations                                 None        None
+mu_nValidPixelHits                  innerTrack.hitPattern.numberOfValidPixelHits            None        None
+mu_nTrackerLayers                   innerTrack.hitPattern.trackerLayersWithMeasurement      None        None
+mu_miniPfIsoCH                      miniPFIsolation.chargedHadronIso                        None        None
+mu_miniPfIsoNH                      miniPFIsolation.neutralHadronIso                        None        None
+mu_miniPfIsoPh                      miniPFIsolation.photonIso                               None        None
+

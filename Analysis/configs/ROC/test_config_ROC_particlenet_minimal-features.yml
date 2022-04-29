@@ -1,0 +1,154 @@
+#ZprimeToTT_M1000_W10_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-11-58
+#ZprimeToTT_M1000_W100_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-03
+#ZprimeToTT_M1000_W300_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-06
+#ZprimeToTT_M1250_W12p5_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-09
+#ZprimeToTT_M1250_W125_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-13
+#ZprimeToTT_M1250_W375_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-16
+#ZprimeToTT_M1500_W15_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-19
+#ZprimeToTT_M1500_W150_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-21
+#ZprimeToTT_M1500_W450_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-24
+#ZprimeToTT_M2000_W20_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-26
+#ZprimeToTT_M2000_W200_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-29
+#ZprimeToTT_M2000_W600_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-32
+#ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-34
+#ZprimeToTT_M3000_W300_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-36
+#ZprimeToTT_M3000_W900_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-41
+#ZprimeToTT_M3500_W35_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-43
+#ZprimeToTT_M3500_W350_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-46
+#ZprimeToTT_M3500_W1050_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-48
+#ZprimeToTT_M4000_W40_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-52
+#ZprimeToTT_M4000_W400_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-55
+#ZprimeToTT_M4000_W1200_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-01-29_18-12-59
+
+
+samples:
+    
+    ZprimeToTT_M1000_W10:
+        names:
+            - "ZprimeToTT_M1000_W10_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-11-58"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M2000_W20:
+        names:
+            - "ZprimeToTT_M2000_W20_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-12-26"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M3000_W30:
+        names:
+            - "ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-12-34"
+        weights:
+            - 1.0
+    
+    ZprimeToTT_M4000_W40:
+        names:
+            - "ZprimeToTT_M4000_W40_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-12-52"
+        weights:
+            - 1.0
+    
+    QCD:
+        names:
+            #- "QCD_Pt_170to300_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-13-11"
+            - "QCD_Pt_300to470_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-13-13"
+            - "QCD_Pt_470to600_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-01-29_18-13-16"
+            - "QCD_Pt_600to800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-13-21"
+            - "QCD_Pt_800to1000_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-01-29_18-13-26"
+            - "QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-01-29_18-13-31"
+            - "QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-01-29_18-13-36"
+            - "QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-01-29_18-13-43"
+            - "QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8_RunIIAutumn18MiniAOD-PREMIX_RECODEBUG_102X_upgrade2018_realistic_v15_ext1-v1_MINIAODSIM:2022-01-29_18-13-59"
+        weights:
+            #- 103300.0
+            - 6826.0
+            - 552.6
+            - 156.6
+            - 26.32
+            - 7.5
+            - 0.6479
+            - 0.08715
+            - 0.005242
+
+curves:
+    -   label: "t^{lep} (Z'_{2 TeV}) vs. QCD"
+        sig:
+            sample:         "ZprimeToTT_M2000_W20"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 200) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 1) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+        bkg:
+            sample:         "QCD"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 200) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+        friends:
+            -   dir:    "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_lite_minimal-features_2022-02-20_16-34-34"
+                tag:    null
+                tree:   "tree"
+        vardict:
+            jet:        "jet_selectedPatJetsAK15PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+        classifier:     "epoch8_ltop_vs_qcd"
+        classifiercut:  "{classifier} > {value}"
+        color: 2
+        linestyle: 1
+    
+    -   label: "t^{lep} (Z'_{3 TeV}) vs. QCD"
+        sig:
+            sample:         "ZprimeToTT_M3000_W30"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 200) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 1) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+        bkg:
+            sample:         "QCD"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 200) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+        friends:
+            -   dir:    "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_lite_minimal-features_2022-02-20_16-34-34"
+                tag:    null
+                tree:   "tree"
+        vardict:
+            jet:        "jet_selectedPatJetsAK15PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+        classifier:     "epoch8_ltop_vs_qcd"
+        classifiercut:  "{classifier} > {value}"
+        color: 4
+        linestyle: 1
+    
+    -   label: "t^{lep} (Z'_{4 TeV}) vs. QCD"
+        sig:
+            sample:         "ZprimeToTT_M4000_W40"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 200) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco < 1) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5)"
+        bkg:
+            sample:         "QCD"
+            tree:           "treeMaker/tree"
+            source:         "sourceFiles/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 200) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 3) && ({jet}_nearestGenTopDR_reco > 1)"
+        friends:
+            -   dir:    "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_lite_minimal-features_2022-02-20_16-34-34"
+                tag:    null
+                tree:   "tree"
+        vardict:
+            jet:        "jet_selectedPatJetsAK15PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+        classifier:     "epoch8_ltop_vs_qcd"
+        classifiercut:  "{classifier} > {value}"
+        color: 6
+        linestyle: 1
+
+xtitle: "Signal efficiency"
+ytitle: "Background efficiency"
+xrange:
+    - 0.0
+    - 1.0
+yrange:
+    - 1.0e-6
+    - 1.0
+logx: false
+logy: true
+gridx: true
+gridy: true
+legendpos: "UL"
+legendtextsize: 0.045
+cpufrac: 0.5
+outfile: "plots/ROCs/particle_net_lite_minimal-features_2022-02-20_16-34-34/ROC.pdf"

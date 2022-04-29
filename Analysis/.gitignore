@@ -1,0 +1,10 @@
+#*#
+*.pdf
+*.png
+*.pyc
+*.root
+*__pycache__*
+*plots*
+*~
+.#*
+.*.swp
