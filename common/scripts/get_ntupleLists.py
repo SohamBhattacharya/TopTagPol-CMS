@@ -30,7 +30,7 @@ def main() :
         help = "Output directory",
         type = str,
         required = False,
-        default = "sourceFiles",
+        default = "ntupleLists",
     )
     
     # Parse arguments
