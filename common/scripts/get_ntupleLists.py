@@ -36,8 +36,12 @@ def main() :
     # Parse arguments
     args = parser.parse_args()
     
+    os.system("mkdir -p %s" %(args.outdir))
     
-    for iSample, sample in enumerate(args.samplenames) :
+    l_sampleName = [_name.strip() for _name in args.samplenames]
+    l_sampleName = [_name[1:].replace("/", "_") for _name in l_sampleName if (_name[0] != "#")]
+    
+    for iSample, sample in enumerate(l_sampleName) :
         
         sample = sample.strip()
         

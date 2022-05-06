@@ -156,7 +156,7 @@ class CustomCallback(tensorflow.keras.callbacks.Callback):
                 
                 cat_str = "sig-cat%d_bkg-cat%d" %(cat_sig, cat_bkg)
                 
-                print("Epoch %d, sig %d, bkg %d" %(epoch, cat_sig, cat_bkg), a_pred_pair)
+                print("Epoch %d, sig %d, bkg %d" %(epoch+1, cat_sig, cat_bkg), a_pred_pair)
                 #print("Epoch %d, sig %d, bkg %d" %(epoch, cat_sig, cat_bkg), a_eff_bkg, a_eff_sig, a_threshold, auc)
                 
                 # https://github.com/tensorflow/tensorboard/issues/2902

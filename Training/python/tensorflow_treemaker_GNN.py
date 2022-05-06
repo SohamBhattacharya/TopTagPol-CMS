@@ -74,6 +74,21 @@ def main() :
         required = True,
     )
     
+    parser.add_argument(
+        "--maxEvents",
+        help = "Maximum number of events to process",
+        type = int,
+        required = False,
+        default = -1,
+    )
+    
+    parser.add_argument(
+        "--debug",
+        help = "Print debug statements",
+        default = False,
+        action = "store_true",
+    )
+    
     
     args = parser.parse_args()
     d_args = vars(args)
@@ -237,8 +252,6 @@ def main() :
                 
                 for iEvent in range(0, nEvent):
                     
-                    ##if (nEvent_processed >= 100) : break
-                    
                     # Clear branches
                     for classifierKey in d_classifierBranch.keys() :
                         
@@ -313,7 +326,9 @@ def main() :
                                     
                                     d_classifierBranch[classifierKey].push_back(val)
                                 
-                                #print(modelKey, classifierKey, arr_classifier, nJet)
+                                if (args.debug) :
+                                    
+                                    print(modelKey, classifierKey, arr_classifier, nJet)
                             
                     
                     
@@ -324,6 +339,14 @@ def main() :
                     if (nEvent_processed == 1 or not (nEvent_processed % d_config["printEvery"]) or nEvent_processed == nEvent_file) :
                         
                         print("%s: processed event %d/%d." %(verbosetag, nEvent_processed, nEvent_file))
+                    
+                    if (args.maxEvents > 0 and nEvent_processed >= args.maxEvents) :
+                        
+                        break
+                
+                if (args.maxEvents > 0 and nEvent_processed >= args.maxEvents) :
+                    
+                    break
     
     
     print("Processing successful. Saving output tree...")

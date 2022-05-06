@@ -378,7 +378,7 @@ def get_particle_net_mod1a(num_classes, input_shapes):
     return keras.Model(inputs=inputs, outputs=outputs, name='ParticleNet')
 
 
-def get_particle_net_mod1b(num_classes, input_shapes):
+def get_particle_net_mod1b(num_classes, input_shapes, nn_part = 64, layer1ch_part = 64, layer1ch_sv = 32):
     r"""ParticleNet model from `"ParticleNet: Jet Tagging via Particle Clouds"
     <https://arxiv.org/abs/1902.08570>`_ paper.
     Parameters
@@ -393,9 +393,9 @@ def get_particle_net_mod1b(num_classes, input_shapes):
     setting_part.num_points = input_shapes['points'][0]
     # conv_params: list of tuple in the format (K, (C1, C2, C3))
     setting_part.conv_params = [
-        (64, (64, 64, 64)),
-        (64, (128, 128, 128)),
-        (64, (256, 256, 256)),
+        (nn_part, (layer1ch_part*1, layer1ch_part*1, layer1ch_part*1)),
+        (nn_part, (layer1ch_part*2, layer1ch_part*2, layer1ch_part*2)),
+        (nn_part, (layer1ch_part*4, layer1ch_part*4, layer1ch_part*4)),
         ]
     # conv_pooling: 'average' or 'max'
     setting_part.conv_pooling = 'average'
@@ -411,9 +411,9 @@ def get_particle_net_mod1b(num_classes, input_shapes):
     setting_sv.num_points = input_shapes['svPoints'][0]
     # conv_params: list of tuple in the format (K, (C1, C2, C3))
     setting_sv.conv_params = [
-        (setting_sv.num_points-1, (32, 32, 32)),
-        (setting_sv.num_points-1, (64, 64, 64)),
-        (setting_sv.num_points-1, (128, 128, 128)),
+        (setting_sv.num_points-1, (layer1ch_sv*1, layer1ch_sv*1, layer1ch_sv*1)),
+        (setting_sv.num_points-1, (layer1ch_sv*2, layer1ch_sv*2, layer1ch_sv*2)),
+        (setting_sv.num_points-1, (layer1ch_sv*4, layer1ch_sv*4, layer1ch_sv*4)),
         ]
     # conv_pooling: 'average' or 'max'
     setting_sv.conv_pooling = 'average'
@@ -483,6 +483,27 @@ def get_particle_net_mod1b(num_classes, input_shapes):
     #        inputs.append(inp)
     
     return keras.Model(inputs=inputs, outputs=outputs, name='ParticleNet')
+
+
+def get_particle_net_mod1c(num_classes, input_shapes) :
+    
+    return get_particle_net_mod1b(
+        num_classes,
+        input_shapes,
+        nn_part = 32,
+        layer1ch_part = 32,
+        layer1ch_sv = 16,
+    )
+
+def get_particle_net_mod1d(num_classes, input_shapes) :
+    
+    return get_particle_net_mod1b(
+        num_classes,
+        input_shapes,
+        nn_part = 16,
+        layer1ch_part = 16,
+        layer1ch_sv = 16,
+    )
 
 
 def get_particle_net_mod2(num_classes, input_shapes):

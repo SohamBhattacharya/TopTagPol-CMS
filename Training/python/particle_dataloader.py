@@ -27,6 +27,8 @@ from typing import List, Set, Dict, Tuple, Optional
 
 import utils
 
+logging.basicConfig(format = "%(asctime)s %(message)s", level = logging.INFO)
+
 
 def loadSliceInfo(
     catNum,
@@ -57,8 +59,8 @@ def loadSliceInfo(
                     fileAndTreeName,
                     #num_workers = nCpu_use,
                     #num_fallback_workers = nCpu_use,
-                    #xrootd_handler = uproot.MultithreadedXRootDSource,
-                    timeout = None,
+                    xrootd_handler = uproot.MultithreadedXRootDSource,
+                    #timeout = None,
                 ) as tree :
                     
                     brName = "cut"
@@ -224,8 +226,8 @@ def loadBatchSlice(
             
             with uproot.open(
                 fileAndTreeName,
-                #xrootd_handler = uproot.MultithreadedXRootDSource,
-                timeout = None,
+                xrootd_handler = uproot.MultithreadedXRootDSource,
+                #timeout = None,
             ) as tree :
                 
                 for dataKey in list(d_branchName_alias.keys()) :
@@ -278,10 +280,13 @@ def loadBatchSlice(
             
             success = False
             
+            sleep_time = 10
+            
             logging.warning("Exception while reading file: %s" %(fileAndTreeName))
             logging.warning(exc)
-            logging.warning("Retrying after 5 seconds...")
-            time.sleep(5)
+            logging.warning("Retrying after %d seconds..." %(sleep_time))
+            time.sleep(sleep_time)
+            logging.warning("Retrying now.")
             
             ##return 1
     
@@ -500,6 +505,15 @@ class ParticleDataset :
             #    result[1].shape,
             #)
             
+            logging.info(
+                "[procIdx %d] "
+                "Yielding batch %d/%d: isLast %d " 
+                "" %(
+                    procIdx,
+                    iProc+1, len(self.l_process)*self.nMerge, isLast
+                )
+            )
+            
             if (isLast) :
                 
                 self.l_process[procIdx].join()
@@ -548,6 +562,8 @@ class ParticleDataset :
                 
                 d_branchName_alias[key] = sortedcontainers.SortedDict({"%s%d" %(key, _i): _expr for _i, _expr in enumerate(l_temp)})
         
+        #print(d_branchName_alias)
+        
         a_sliceIdx = self.a_sliceIdx_batched[batchIdx]
         
         nCpu = multiprocessing.cpu_count()
@@ -564,7 +580,7 @@ class ParticleDataset :
         
         with multiprocessing.Pool(
             processes = nCpu_use,
-            #maxtasksperchild = 1
+            maxtasksperchild = 1
         ) as pool :
             
             l_job = []
@@ -641,21 +657,20 @@ class ParticleDataset :
                 
                 for iJob, job in enumerate(l_job) :
                     
-                    #if (job is None) :
-                    #    
-                    #    continue
+                    if (job is None) :
+                        
+                        continue
                     
                     if (not l_isJobDone[iJob] and job.ready()) :
-                        
-                        l_isJobDone[iJob] = True
                         
                         retVal = job.get()
                         
                         if (retVal) :
                             
-                            print("[job %d] retVal" %(ijob), retVal)
+                            print("[batch job %d] retVal" %(ijob), retVal)
                         
-                        #l_job[iJob] = None
+                        l_isJobDone[iJob] = True
+                        l_job[iJob] = None
                         
                         if (not sum(l_isJobDone) % 10) :
                             
@@ -663,6 +678,15 @@ class ParticleDataset :
                         
                         #print("[batch idx %d (num %d/%d)] processed output of read-job num %d (%d/%d done)." %(batchIdx, batchIdx+1, self.nBatch, iJob+1, sum(l_isJobDone), len(l_job)))
                         #print("=====> Memory:", utils.getMemoryMB())
+                        
+                        logging.info(
+                            "[batchIdx %d, procIdx %d] "
+                            "Processed output of read-job %d (%d/%d done)"
+                            "" %(
+                                batchIdx, procIdx, 
+                                iJob, sum(l_isJobDone), len(l_job)
+                            )
+                        )
             
             pool.join()
             pool.terminate()
@@ -675,6 +699,16 @@ class ParticleDataset :
             del l_job
         
         gc.collect()
+        
+        
+        logging.info(
+            "[batchIdx %d, procIdx %d] "
+            "Finished all read-jobs."
+            "" %(
+                batchIdx, procIdx, 
+            )
+        )
+        
         
         # One-hot labels
         #print("Creating batch y-data.")
@@ -721,12 +755,30 @@ class ParticleDataset :
                     continue
                 
                 d_data_cpy[key] = d_data[key][a_shf_idx].copy()
+                
+                if(numpy.sum(numpy.isnan(d_data_cpy[key])) or numpy.sum(numpy.isinf(d_data_cpy[key]))) :
+                    
+                    print("--NAN--"*10)
+                    print(key, numpy.transpose(numpy.nonzero(numpy.isnan(d_data_cpy[key]))))
             
             a_label_tmp = a_label[a_shf_idx]
             a_weight_tmp = a_weight[a_shf_idx]
             
+            if(numpy.sum(numpy.isnan(a_weight_tmp)) or numpy.sum(numpy.isinf(a_weight_tmp))) :
+                
+                print("--NAN--"*10)
+                print("weight", a_weight_tmp)
+            
             wt_sum = numpy.sum(a_weight_tmp)
-            norm = len(a_shf_idx) / wt_sum
+            norm = 1.0
+            
+            if (wt_sum) :
+                
+                norm = len(a_shf_idx) / wt_sum
+            
+            else :
+                print("Zero weight sum.")
+                print(a_weight_tmp)
             
             a_weight_tmp *= norm
             

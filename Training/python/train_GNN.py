@@ -563,11 +563,13 @@ def main() :
         #**kwargs
     )
     
-    profile_batch = (nBatch//5, 2*(nBatch//5))
+    profile_batch = [nBatch//5, 2*(nBatch//5)]
     
     if (profile_batch[1]-profile_batch[0] > 2000) :
         
         profile_batch[1] = profile_batch[0]+2000
+    
+    profile_batch = tuple(profile_batch)
     
     tensorboard_callback = tensorflow.keras.callbacks.TensorBoard(
         log_dir = tensorboard_dir,
