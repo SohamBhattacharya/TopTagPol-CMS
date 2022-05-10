@@ -576,6 +576,16 @@ namespace Common
     }
     
     
+    double catchNansInfs(double val, double replace_val)
+    {
+        if(std::isnan(val) || std::isinf(val))
+        {
+            return replace_val;
+        }
+        
+        return val;
+    }
+    
     
     // From: https://github.com/CMSDeepFlavour/DeepNTuples/blob/master/DeepNtuplizer/interface/ntuple_content.h
     double catchInfs(double in, double replace_value){

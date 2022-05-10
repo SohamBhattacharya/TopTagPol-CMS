@@ -1644,6 +1644,15 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                 double y_LBGS = v_consti_boosted.at(iConsti).pz() / v_consti_boosted.at(iConsti).e();
                 double enFrac = v_consti_boosted.at(iConsti).e() / jetInfo->jetLorentzBoost_e0;
                 
+                if(nConsti == 1)
+                {
+                    enFrac = 1;
+                }
+                
+                x_LBGS = Common::catchNansInfs(x_LBGS, 0);
+                y_LBGS = Common::catchNansInfs(y_LBGS, 0);
+                enFrac = Common::catchNansInfs(enFrac, 0);
+                
                 //edm::Ptr <reco::PFCandidate> constiPF(consti);
                 //std::cout << iConsti << " " << constiPF.isNonnull() << "\n"; std::fflush(stdout);
                 //std::cout << iConsti << " " << constiPF->gsfElectronRef().isNonnull() << "\n"; std::fflush(stdout);

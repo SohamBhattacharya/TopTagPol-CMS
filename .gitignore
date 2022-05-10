@@ -4,7 +4,7 @@
 *.pyc
 *.root
 *__pycache__*
-*debug*
+#*debug*
 *plots*
 *log*
 *training_results*
@@ -12,3 +12,4 @@
 .#*
 .*.swp
 *Documentation*
+**/tmp/**
