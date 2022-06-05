@@ -256,6 +256,6 @@ gridy: true
 legendpos: "UL"
 legendtextsize: 0.04
 cpufrac: 0.9
-outtag: "top-mu"
+outtag: "muTop-vs-QCD"
 #outfile: "plots/ROCs/particle_net_mod1b_ak8_2022-04-09_16-24-46/ROC.pdf"
 outdir: "plots/ROCs/particle_net_mod1b_ak8_2022-04-09_16-24-46/2018"

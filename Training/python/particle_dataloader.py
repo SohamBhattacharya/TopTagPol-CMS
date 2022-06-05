@@ -27,7 +27,8 @@ from typing import List, Set, Dict, Tuple, Optional
 
 import utils
 
-logging.basicConfig(format = "%(asctime)s %(message)s", level = logging.INFO)
+#logging.basicConfig(format = "%(asctime)s %(message)s", level = logging.INFO)
+logging.basicConfig(format = "%(asctime)s %(message)s", level = logging.WARNING)
 
 
 def loadSliceInfo(

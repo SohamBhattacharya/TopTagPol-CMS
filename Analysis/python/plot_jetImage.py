@@ -22,7 +22,7 @@ import utils
 def main() :
     
     # Argument parser
-    parser = argparse.ArgumentParser(formatter_class = argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
     
     parser.add_argument(
         "--fileAndTreeNames",
@@ -371,11 +371,9 @@ def main() :
     h2_jetImg.SetMinimum(args.zRange[0])
     h2_jetImg.SetMaximum(args.zRange[1])
     
-    
     utils.cpalette_nipy_spectral.set()
     
     h2_jetImg.Draw("colz")
-    
     
     latex = ROOT.TLatex()
     #latex.SetTextFont(62)
@@ -383,7 +381,6 @@ def main() :
     latex.SetTextAlign(13)
     
     latex.DrawLatex(args.titlePos[0], args.titlePos[1], args.title)
-    
     
     canvas.SetLogz(args.logZ)
     
@@ -396,6 +393,7 @@ def main() :
         os.system("mkdir -p %s" %(outDir))
     
     canvas.SaveAs(args.outFileName)
+    canvas.SaveAs(args.outFileName.replace(".pdf", ".png"))
     
     
     return 0

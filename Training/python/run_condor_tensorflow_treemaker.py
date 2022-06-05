@@ -55,6 +55,7 @@ def main() :
         nFile = len(fileAndTreeNames)
         
         sourceFile = sampleSource.strip().split(":")[0]
+        sourceFile = os.path.realpath(sourceFile) # Expand symlinks to get the true filename
         sampleName = sourceFile.split("/")[-1].split(".txt")[0]
         
         outputTag = d_config["outputTag"].strip()
@@ -228,8 +229,8 @@ def main() :
         print("")
         print("Sample: %s" %(sampleSource))
         print("Paths already exist:")
-        if (os.path.exists(outDir)) : print(outDir)
-        if (os.path.exists(condordir)) : print(condordir)
+        if (os.path.exists(outDir)) : print(d_jobSummary[sampleSource]["outDir"])
+        if (os.path.exists(condordir)) : print(d_jobSummary[sampleSource]["condordir"])
     
     if (not hasSkipped) :
         

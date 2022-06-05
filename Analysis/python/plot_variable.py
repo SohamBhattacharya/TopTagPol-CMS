@@ -320,69 +320,6 @@ def main() :
     )
     
     
-    #canvas = ROOT.TCanvas("canvas", "canvas", 800, 600)
-    #
-    #stack = ROOT.THStack("stack", "")
-    #
-    #legendHeightScale = 1
-    #legendWidthScale = 1
-    #
-    #legendHeight = legendHeightScale * 0.05 * len(l_hist)
-    #legendWidth = legendWidthScale * 0.65
-    #
-    #padTop = 1 - canvas.GetTopMargin() - 0.6*ROOT.gStyle.GetTickLength("y")
-    #padRight = 1 - canvas.GetRightMargin() - 0.6*ROOT.gStyle.GetTickLength("x")
-    #padBottom = canvas.GetBottomMargin() + 0.6*ROOT.gStyle.GetTickLength("y")
-    #padLeft = canvas.GetLeftMargin() + 0.6*ROOT.gStyle.GetTickLength("x")
-    #
-    #if(args.legendPos == "UR") :
-    #    
-    #    legend = ROOT.TLegend(padRight-legendWidth, padTop-legendHeight, padRight, padTop)
-    #
-    #elif(args.legendPos == "LR") :
-    #    
-    #    legend = ROOT.TLegend(padRight-legendWidth, padBottom, padRight, padBottom+legendHeight)
-    #
-    #elif(args.legendPos == "LL") :
-    #    
-    #    legend = ROOT.TLegend(padLeft, padBottom, padLeft+legendWidth, padBottom+legendHeight)
-    #
-    #elif(args.legendPos == "UL") :
-    #    
-    #    legend = ROOT.TLegend(padLeft, padTop-legendHeight, padLeft+legendWidth, padTop)
-    #
-    #
-    #for iVar, varName in enumerate(args.plotVars) :
-    #    
-    #    stack.Add(l_hist[iVar], "hist")
-    #    
-    #    legend.AddEntry(l_hist[iVar], "%s (#mu=%0.2f, #sigma=%0.2f)" %(args.labels[iVar], l_hist[iVar].GetMean(), l_hist[iVar].GetStdDev()), "LP")
-    #
-    #
-    #legend.SetFillStyle(0)
-    #
-    #
-    #stack.Draw("nostack")
-    #legend.Draw()
-    #
-    #stack.GetXaxis().SetRangeUser(*args.xRange)
-    #
-    #stack.SetMinimum(args.yRange[0])
-    #stack.SetMaximum(args.yRange[1])
-    #
-    #stack.GetXaxis().SetTitle(args.xTitle)
-    #stack.GetYaxis().SetTitle(args.yTitle)
-    #
-    #canvas.SetLogy(args.logY)
-    #
-    #if ("/" in args.outFileName) :
-    #    
-    #    outDir = args.outFileName[0: args.outFileName.rfind("/")]
-    #    os.system("mkdir -p %s" %(outDir))
-    #
-    #canvas.SaveAs(args.outFileName)
-    
-    
     return 0
 
 

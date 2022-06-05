@@ -26,6 +26,13 @@ def main() :
     )
     
     parser.add_argument(
+        "--marklatest",
+        help = "create links (named \"<sample>_latest.txt\") to the latest version",
+        default = False,
+        action = "store_true",
+    )
+    
+    parser.add_argument(
         "--outdir",
         help = "Output directory",
         type = str,
@@ -57,6 +64,7 @@ def main() :
         datedir = subprocess.check_output("ls %s | sort -V | tail -n 1" %(samplepath), shell = True).decode("utf-8").strip()
         
         outfilename = "%s/%s_%s.txt" %(args.outdir, sample, datedir)
+        outfilename_latest = "%s/%s_latest.txt" %(args.outdir, sample)
         
         # Will get the latest one when the directory has the ending tag YYYY-MM-DD_hh-mm-ss
         cmd = "find `find {samplepath} -mindepth 1 -maxdepth 1 | sort -V | tail -n 1` -mindepth 1 | sort -V > {outfilename}".format(
@@ -68,6 +76,15 @@ def main() :
         
         os.system(cmd)
         os.system("wc -l %s" %(outfilename))
+        
+        if (args.marklatest) :
+            
+            cmd = "ln -rsf %s %s" %(outfilename, outfilename_latest)
+            retval = os.system(cmd)
+            
+            if (not retval) :
+                
+                print("Linked as the latest.")
 
 
 if (__name__ == "__main__") :

@@ -3,28 +3,52 @@ samples:
     
     TTJets:
         names:
-            #- "TTJets_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_15-16-05"
-            - "TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_15-18-18"
-            - "TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_15-19-37"
-            - "TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_15-20-01"
+            - "TTJets_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
         weights:
-            #- 1.821
+            - 1.821
             - 0.7532
             - 0.1316
             - 0.001407
     
+    Wprimetotb_M3000W30:
+        names:
+            - "Wprimetotb_M3000W30_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2_MINIAODSIM:latest"
+            - "Wprimetotb_M3000W30_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+        weights:
+            - 1.0
+            - 1.0
+    
+    Wprimetotb_M4000W40:
+        names:
+            - "Wprimetotb_M4000W40_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "Wprimetotb_M4000W40_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+        weights:
+            - 1.0
+            - 1.0
+    
+    Wprimetotb_M6000W60:
+        names:
+            - "Wprimetotb_M6000W60_LH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "Wprimetotb_M6000W60_RH_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+        weights:
+            - 1.0
+            - 1.0
+    
     WJets:
         names:
-            - "WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_18-32-44"
-            - "WJetsToLNu_Pt-600ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_18-32-57"
+            - "WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "WJetsToLNu_Pt-600ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
         weights:
             - 3.604
             - 0.5545
     
     DYJets:
         names:
-            - "DYJetsToLL_Pt-400To650_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_18-34-19"
-            - "DYJetsToLL_Pt-650ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:2022-04-27_18-34-30"
+            - "DYJetsToLL_Pt-400To650_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
+            - "DYJetsToLL_Pt-650ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM:latest"
         weights:
             - 0.5164
             - 0.04796
@@ -48,16 +72,40 @@ curves:
             source:         "ntupleLists/{sample}_{tag}.txt"
             weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenWDR_reco < 0.6) && ({jet}_nearestGenWIsLeptonic_reco > 0.5)"
         friends:
-            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-04-29_19-30-53"
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
                 tag:                null
                 #usefriendlist:      "pnet"
                 tree:               "tree"
         vardict:
             jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch9_lepTop_vs_lepW"
+        classifier:     "epoch11_lepTop_vs_lepW"
         classifiercut:  "{classifier} > {value}"
         color: 2
         linestyle: 1
+    
+    
+    -   label: "t^{lep} (W'_{6 TeV}) vs. W^{lep} (W+jets)"
+        sig:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        bkg:
+            sample:         "WJets"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenWDR_reco < 0.6) && ({jet}_nearestGenWIsLeptonic_reco > 0.5)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+        classifier:     "epoch11_lepTop_vs_lepW"
+        classifiercut:  "{classifier} > {value}"
+        color: 2
+        linestyle: 7
     
     
     -   label: "t^{lep} (t#bar{t}) vs. Z^{lep} (Z+jets)"
@@ -72,16 +120,40 @@ curves:
             source:         "ntupleLists/{sample}_{tag}.txt"
             weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenZDR_reco < 0.6) && ({jet}_nearestGenZIsLeptonic_reco > 0.5) && ({jet}_nearestGenZlep1DR_reco < 0.6) && ({jet}_nearestGenZlep2DR_reco < 0.6)"
         friends:
-            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-04-29_19-30-53"
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
                 tag:                null
                 #usefriendlist:      "pnet"
                 tree:               "tree"
         vardict:
             jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch9_lepTop_vs_lepZ"
+        classifier:     "epoch11_lepTop_vs_lepZ"
         classifiercut:  "{classifier} > {value}"
         color: 4
         linestyle: 1
+    
+    
+    -   label: "t^{lep} (W'_{6 TeV}) vs. Z^{lep} (Z+jets)"
+        sig:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        bkg:
+            sample:         "DYJets"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenZDR_reco < 0.6) && ({jet}_nearestGenZIsLeptonic_reco > 0.5) && ({jet}_nearestGenZlep1DR_reco < 0.6) && ({jet}_nearestGenZlep2DR_reco < 0.6)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+        classifier:     "epoch11_lepTop_vs_lepZ"
+        classifiercut:  "{classifier} > {value}"
+        color: 4
+        linestyle: 7
     
 
 xtitle: "Signal efficiency"
@@ -99,6 +171,6 @@ gridy: true
 legendpos: "UL"
 legendtextsize: 0.04
 cpufrac: 0.9
-outtag: "top-el-mu_vs_WZ"
-#outfile: "plots/ROCs/particle_net_mod1b_ak8_with-WZ_2022-04-29_19-30-53/ROC.pdf"
-outdir: "plots/ROCs/particle_net_mod1b_ak8_with-WZ_2022-04-29_19-30-53/2018"
+outtag: "lepTop-vs-lepWZ"
+#outfile: "plots/ROCs/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28/ROC.pdf"
+outdir: "plots/ROCs/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28/2018"

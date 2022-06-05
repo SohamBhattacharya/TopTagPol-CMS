@@ -42,8 +42,8 @@ import yaml
 from typing import List, Set, Dict, Tuple, Optional
 
 #from tensorflow.keras import datasets, layers, models
-#from tensorflow.keras import mixed_precision
 
+#from tensorflow.keras import mixed_precision
 #policy = mixed_precision.Policy("mixed_float16")
 #mixed_precision.set_global_policy(policy)
 
@@ -123,7 +123,7 @@ def main() :
     
     
     # Argument parser
-    parser = argparse.ArgumentParser(formatter_class = argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
     
     parser.add_argument(
         "--config",

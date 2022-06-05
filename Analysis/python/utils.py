@@ -62,28 +62,31 @@ uproot_lang.functions["where"] = numpy.where
 uproot_lang.functions["nonzero"] = numpy.nonzero
 
 
-def load_config(fileName) :
+d_datetime_fmt = {}
+d_datetime_fmt[0] = "+%Y-%m-%d_%H-%M-%S"
+d_datetime_fmt[1] = "+%Y-%m-%d_%H-%M-%N"
+
+
+def load_config(cfg) :
     
-    with open(fileName, "r") as fopen :
+    content = cfg
+    
+    if (os.path.isfile(cfg)) :
         
-        fileContent = fopen.read()
-        print("Loading config:")
-        print(fileContent)
-        
-        d_loadConfig = yaml.load(fileContent, Loader = yaml.FullLoader)
-        
-        #jetNameKey = d_loadConfig["jetName"].split(":")[0]
-        #jetName = d_loadConfig["jetName"].split(":")[1]
-        #
-        #fileContent = fileContent.replace(jetNameKey, jetName)
-        #
-        #d_loadConfig = yaml.load(fileContent, Loader = yaml.FullLoader)
-        
-        d_loadConfig["fileContent"] = fileContent
-        
-        d_loadConfig = sortedcontainers.SortedDict(d_loadConfig)
-        
-        return d_loadConfig
+        with open(cfg, "r") as fopen :
+            
+            content = fopen.read()
+    
+    print("Loading config:")
+    print(content)
+    
+    d_loadConfig = yaml.load(content, Loader = yaml.FullLoader)
+    
+    d_loadConfig["content"] = content
+    
+    d_loadConfig = sortedcontainers.SortedDict(d_loadConfig)
+    
+    return d_loadConfig
 
 
 def run_cmd_list(l_cmd) :
@@ -157,6 +160,14 @@ def format_file(filename, d, execute = False) :
     else :
         
         return l_cmd
+
+
+def get_timestamp(fmt_opt) :
+    
+    timestamp = subprocess.check_output(["date", d_datetime_fmt[fmt_opt]]).strip()
+    timestamp = timestamp.decode("UTF-8") # Convert from bytes to string
+    
+    return timestamp
 
 
 def get_name_withtimestamp(dirname) :
@@ -236,6 +247,98 @@ def wait_for_asyncpool(l_job) :
     gc.collect()
 
 
+def load_sampleFilesAndTrees(d_sampleCfg, d_plotCfg) :
+    
+    l_tree_sample = []
+    l_tree_friend = []
+    
+    l_sample_name   = d_sampleCfg["samples"][d_plotCfg["sample"]]["names"]
+    l_sample_weight = d_sampleCfg["samples"][d_plotCfg["sample"]]["weights"]
+    l_sample_norm   = [1.0] * len(l_sample_weight)
+    
+    for iSample, sample_entry in enumerate(l_sample_name) :
+        
+        verbosetag_sample = "[sample %d/%d]" %(iSample+1, len(l_sample_name))
+        
+        sample, tag = sample_entry.split(":")
+        sample_weight = l_sample_weight[iSample]
+        
+        sample_source = d_plotCfg["source"].format(
+            sample = sample,
+            tag = tag,
+        )
+        
+        l_sample_file = numpy.loadtxt(sample_source, dtype = str, delimiter = "x"*100) ##[0: 1]
+        l_sample_filename = [entry.split("/")[-1] for entry in l_sample_file]
+        
+        print("l_sample_file:\n", "\n".join(l_sample_file))
+        
+        tree_sample = ROOT.TChain(d_plotCfg["tree"])
+        
+        for entry in l_sample_file :
+            
+            if (tag == "latest") :
+                
+                tag = entry.split(sample)[-1].split("/")[1]
+            
+            print("%s adding file: %s" %(verbosetag_sample, entry))
+            tree_sample.Add(entry)
+        
+        l_tree_friend.append([])
+        
+        for iFriend, d_friend in enumerate(d_plotCfg["friends"]) :
+            
+            verbosetag_friend = "[friend %d/%d]" %(iFriend+1, len(d_plotCfg["friends"]))
+            
+            sample_fr = sample
+            tag_fr = d_friend["tag"] if (d_friend["tag"] is not None) else tag
+            
+            if ("usefriendlist" in d_friend) :
+                
+                for fr in d_sampleCfg["friendlist"][d_friend["usefriendlist"]] :
+                    
+                    if sample in fr :
+                        
+                        sample_fr, tag_fr = fr.split(":")
+                        break
+            
+            l_sample_friend = [
+                "{dir}/{sample}_{tag}/{entry}".format(
+                    dir = d_friend["dir"],
+                    sample = sample_fr,
+                    tag = tag_fr,
+                    entry = entry,
+                ) for entry in l_sample_filename
+            ]
+            
+            print("l_sample_friend:\n", "\n".join(l_sample_friend))
+            
+            tree_friend = ROOT.TChain(d_friend["tree"])
+            
+            for entry in l_sample_friend :
+                
+                print("%s %s adding file: %s" %(verbosetag_sample, verbosetag_friend, entry))
+                tree_friend.Add(entry)
+            
+            # Need to keep a reference to the tree chain
+            l_tree_friend[-1].append(tree_friend)
+            
+            tree_sample.AddFriend(tree_friend)
+        
+        # Need to keep a reference to the tree chain
+        l_tree_sample.append(tree_sample)
+        
+        l_sample_norm[iSample] = float(sample_weight)/tree_sample.GetEntries()
+    
+    
+    d_result = {}
+    d_result["l_tree_sample"] = l_tree_sample
+    d_result["l_tree_friend"] = l_tree_friend
+    d_result["l_sample_norm"] = l_sample_norm
+    
+    return d_result
+
+
 def root_plot1D(
     l_hist,
     outfile,
@@ -251,6 +354,7 @@ def root_plot1D(
     gridx = False, gridy = False,
     #ndivisionsx = [5, 5, 0],
     ndivisionsx = None,
+    histdrawopt = "hist",
     stackdrawopt = "nostack",
     legendpos = "UR",
     legendncol = 1,
@@ -317,7 +421,7 @@ def root_plot1D(
         hist.GetXaxis().SetRangeUser(xrange[0], xrange[1])
         #hist.SetFillStyle(0)
         
-        stack.Add(hist, "hist")
+        stack.Add(hist, histdrawopt)
         legend.AddEntry(hist, hist.GetTitle(), "LP")
     
     # Add a dummy histogram so that the X-axis range can be beyond the histogram range

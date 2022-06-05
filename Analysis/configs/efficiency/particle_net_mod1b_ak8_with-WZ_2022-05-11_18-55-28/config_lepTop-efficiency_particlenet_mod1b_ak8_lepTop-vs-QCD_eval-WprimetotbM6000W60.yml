@@ -94,6 +94,7 @@ samples:
             - 0.6479
             - 0.08715
             - 0.005242
+    
 
 #friendlist:
 #    
@@ -101,159 +102,177 @@ samples:
 #        - 
 
 curves:
-    -   label: "t^{lep} (t#bar{t}: 800<H_{T}<1200 GeV) vs. QCD"
-        sig:
-            sample:         "TTJets_HT-800to1200"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
-        bkg:
-            sample:         "QCD"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco > 1)"
-        friends:
-            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
-                tag:                null
-                #usefriendlist:      "pnet"
-                tree:               "tree"
-        vardict:
-            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch11_lepTop_vs_qcd"
-        classifiercut:  "{classifier} > {value}"
-        color: 4
-        linestyle: 1
     
-    -   label: "t^{lep} (t#bar{t}: 1200<H_{T}<2500 GeV) vs. QCD"
-        sig:
-            sample:         "TTJets_HT-1200to2500"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
-        bkg:
-            sample:         "QCD"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco > 1)"
-        friends:
-            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
-                tag:                null
-                #usefriendlist:      "pnet"
-                tree:               "tree"
-        vardict:
-            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch11_lepTop_vs_qcd"
-        classifiercut:  "{classifier} > {value}"
-        color: 8
-        linestyle: 1
-    
-    -   label: "t^{lep} (Z'_{2 TeV}) vs. QCD"
-        sig:
-            sample:         "ZprimeToTT_M2000_W20"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
-        bkg:
-            sample:         "QCD"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco > 1)"
-        friends:
-            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
-                tag:                null
-                #usefriendlist:      "pnet"
-                tree:               "tree"
-        vardict:
-            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch11_lepTop_vs_qcd"
-        classifiercut:  "{classifier} > {value}"
-        color: 2
-        linestyle: 1
-    
-    #-   label: "t^{lep} (Z'_{4 TeV}) vs. QCD"
-    #    sig:
-    #        sample:         "ZprimeToTT_M4000_W40"
-    #        tree:           "treeMaker/tree"
-    #        source:         "ntupleLists/{sample}_{tag}.txt"
-    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
-    #    bkg:
-    #        sample:         "QCD"
-    #        tree:           "treeMaker/tree"
-    #        source:         "ntupleLists/{sample}_{tag}.txt"
-    #        weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco > 1)"
-    #    friends:
-    #        -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
-    #            tag:                null
-    #            usefriendlist:      "pnet"
-    #            tree:               "tree"
-    #    vardict:
-    #        jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-    #    classifier:     "epoch11_lepTop_vs_qcd"
-    #    classifiercut:  "{classifier} > {value}"
-    #    color: 6
-    #    linestyle: 1
-    
-    -   label: "t^{lep} (W'_{4 TeV}) vs. QCD"
-        sig:
-            sample:         "Wprimetotb_M4000W40"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
-        bkg:
-            sample:         "QCD"
-            tree:           "treeMaker/tree"
-            source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco > 1)"
-        friends:
-            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
-                tag:                null
-                #usefriendlist:      "pnet"
-                tree:               "tree"
-        vardict:
-            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch11_lepTop_vs_qcd"
-        classifiercut:  "{classifier} > {value}"
-        color: 7
-        linestyle: 1
-    
-    -   label: "t^{lep} (W'_{6 TeV}) vs. QCD"
-        sig:
+    -   label: "AK8 t^{lep} jets [W'_{6 TeV}#; w.r.t. gen#; logit(o) > 5]"
+        num:
             sample:         "Wprimetotb_M6000W60"
             tree:           "treeMaker/tree"
             source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
-        bkg:
-            sample:         "QCD"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({classifier} > 5) && ({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        den:
+            sample:         "Wprimetotb_M6000W60"
             tree:           "treeMaker/tree"
             source:         "ntupleLists/{sample}_{tag}.txt"
-            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco > 1)"
+            plot:           "genTop_pT"
+            weight:         "(genTop_pT > 0) && (abs(genTop_eta) < 2.5) && (abs(genTop_isLeptonic) > 0.5)"
         friends:
             -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
                 tag:                null
                 #usefriendlist:      "pnet"
                 tree:               "tree"
         vardict:
-            jet:        "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
-        classifier:     "epoch11_lepTop_vs_qcd"
-        classifiercut:  "{classifier} > {value}"
-        color: 9
+            jet:            "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+            classifier:     "log(max(1e-32, epoch11_lepTop_vs_qcd)/max(1.0e-32, 1.0-epoch11_lepTop_vs_qcd))"
+        color: 2
         linestyle: 1
+    
+    
+    -   label: "AK8 t^{lep} jets [W'_{6 TeV}#; w.r.t. reco#; logit(o) > 5]"
+        num:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({classifier} > 5) && ({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        den:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:            "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+            classifier:     "log(max(1e-32, epoch11_lepTop_vs_qcd)/max(1.0e-32, 1.0-epoch11_lepTop_vs_qcd))"
+        color: 2
+        linestyle: 2
+    
+    
+    -   label: "AK8 t^{lep} jets [W'_{6 TeV}#; w.r.t. gen#; logit(o) > 10]"
+        num:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({classifier} > 10) && ({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        den:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT"
+            weight:         "(genTop_pT > 0) && (abs(genTop_eta) < 2.5) && (abs(genTop_isLeptonic) > 0.5)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:            "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+            classifier:     "log(max(1e-32, epoch11_lepTop_vs_qcd)/max(1.0e-32, 1.0-epoch11_lepTop_vs_qcd))"
+        color: 4
+        linestyle: 1
+    
+    
+    -   label: "AK8 t^{lep} jets [W'_{6 TeV}#; w.r.t. reco#; logit(o) > 10]"
+        num:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({classifier} > 10) && ({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        den:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:            "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+            classifier:     "log(max(1e-32, epoch11_lepTop_vs_qcd)/max(1.0e-32, 1.0-epoch11_lepTop_vs_qcd))"
+        color: 4
+        linestyle: 2
+    
+    
+    -   label: "AK8 t^{lep} jets [W'_{6 TeV}#; w.r.t. gen#; logit(o) > 15]"
+        num:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({classifier} > 15) && ({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        den:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT"
+            weight:         "(genTop_pT > 0) && (abs(genTop_eta) < 2.5) && (abs(genTop_isLeptonic) > 0.5)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:            "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+            classifier:     "log(max(1e-32, epoch11_lepTop_vs_qcd)/max(1.0e-32, 1.0-epoch11_lepTop_vs_qcd))"
+        color: 6
+        linestyle: 1
+    
+    
+    -   label: "AK8 t^{lep} jets [W'_{6 TeV}#; w.r.t. reco#; logit(o) > 15]"
+        num:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({classifier} > 15) && ({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        den:
+            sample:         "Wprimetotb_M6000W60"
+            tree:           "treeMaker/tree"
+            source:         "ntupleLists/{sample}_{tag}.txt"
+            plot:           "genTop_pT[{jet}_nearestGenTopIdx_reco]"
+            weight:         "({jet}_pT_reco > 400) && (abs({jet}_eta_reco) < 2.5) && ({jet}_nConsti_reco >= 1) && ({jet}_nearestGenTopDR_reco < 0.6) && ({jet}_nearestGenTopIsLeptonic_reco > 0.5) && ({jet}_nearestGenTopbDR_reco < 0.6) && ({jet}_nearestGenTopWlepDR_reco < 0.6)"
+        friends:
+            -   dir:                "/nfs/dust/cms/user/sobhatta/work/TopTagPol/Training/training_results/classifier_trees/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28"
+                tag:                null
+                #usefriendlist:      "pnet"
+                tree:               "tree"
+        vardict:
+            jet:            "jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+            classifier:     "log(max(1e-32, epoch11_lepTop_vs_qcd)/max(1.0e-32, 1.0-epoch11_lepTop_vs_qcd))"
+        color: 6
+        linestyle: 2
 
-xtitle: "Signal efficiency"
-ytitle: "Background efficiency"
+#bins: "numpy.concatenate([numpy.arange(0.0, 1500.0, 100), numpy.arange(1500.0, 2500.0, 500), numpy.array([3000, 5000])], axis = None)"
+#bins: "numpy.concatenate([numpy.arange(0.0, 2000.0, 100), numpy.arange(2000.0, 10000.0, 500)], axis = None)"
+bins: "numpy.concatenate([numpy.arange(0.0, 2000.0, 200), numpy.arange(2000.0, 3000.0, 500), numpy.arange(3000.0, 10000.0, 1000)], axis = None)"
+#bins: "numpy.concatenate([numpy.arange(0.0, 10000.0, 100)], axis = None)"
+
+xtitle: "t^{lep}_{gen} p_{T} [GeV]"
+ytitle: "Efficiency"
 xrange:
     - 0.0
-    - 1.0
+    - 5000.0
 yrange:
-    - 1.0e-6
-    - 1.0
+    - 0.0
+    - 2.0
 logx: false
-logy: true
+logy: false
 gridx: true
 gridy: true
 legendpos: "UL"
-legendtextsize: 0.04
+legendncol: 1
+legendtextsize: 0.03
 cpufrac: 0.9
-outtag: "lepTop-vs-QCD"
-#outfile: "plots/ROCs/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28/ROC.pdf"
-outdir: "plots/ROCs/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28/2018"
+outname: "lepTop-efficiency_vs_genTop-pT_eval-WprimetotbM6000W60"
+outtag: "classifier-lepTop-vs-QCD"
+outdir: "plots/efficiencies/particle_net_mod1b_ak8_with-WZ_2022-05-11_18-55-28/2018"

@@ -26,6 +26,14 @@ parser.add_argument(
 )
 
 parser.add_argument(
+    "--dasOptions",
+    help = "Additional DAS options (such as \"instance=prod/phys03\")",
+    type = str,
+    required = False,
+    default = "",
+)
+
+parser.add_argument(
     "--replace",
     help = "Will replace \"str1\" with \"str2\": \"str1\" \"str2\" (e.g. \"/store\" \"root://dcache-cms-xrootd.desy.de://pnfs/desy.de/cms/tier2/store\")",
     type = str,
@@ -114,10 +122,10 @@ for iSample, sampleName in enumerate(l_sampleName) :
     
     if (args.getCount) :
         
-        command = "dasgoclient -query=\"file dataset=%s | sum(file.nevents)\"" %(sampleName)
+        command = "dasgoclient -query=\"file dataset=%s %s | sum(file.nevents)\"" %(sampleName, args.dasOptions)
         os.system(command)
         
-        command = "dasgoclient -query=\"dataset=%s | grep dataset.size\"" %(sampleName)
+        command = "dasgoclient -query=\"dataset=%s %s | grep dataset.size\"" %(sampleName, args.dasOptions)
         dataset_size = float(subprocess.check_output(command, shell = True).strip())
         dataset_size /= (1024**4) # TB
         dataset_size_tot += dataset_size
@@ -139,14 +147,14 @@ for iSample, sampleName in enumerate(l_sampleName) :
         
         if (args.maxEvents is None) :
             
-            command = "dasgoclient -query=\"file dataset=%s\" | sort -V > %s" %(sampleName, outFile)
+            command = "dasgoclient -query=\"file dataset=%s %s\" | sort -V > %s" %(sampleName, args.dasOptions, outFile)
             print("Command:", command)
             print("")
             os.system(command)
         
         else :
             
-            command = "dasgoclient -query=\"file dataset=%s | grep file.name, file.nevents\" | sort -nr -k 2" %(sampleName)
+            command = "dasgoclient -query=\"file dataset=%s %s | grep file.name, file.nevents\" | sort -nr -k 2" %(args.dasOptions, sampleName)
             print("Command:", command)
             print("")
             cmd_result = subprocess.check_output(command, shell = True).strip()

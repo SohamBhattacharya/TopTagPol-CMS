@@ -38,7 +38,7 @@ pprinter = pprint.PrettyPrinter(width = 500, depth = 2)
 def main() :
     
     # Argument parser
-    parser = argparse.ArgumentParser(formatter_class = argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
     
     
     parser.add_argument(
@@ -165,6 +165,10 @@ def main() :
                 
                 for entry in l_sample_file :
                     
+                    if (tag == "latest") :
+                        
+                        tag = entry.split(sample)[-1].split("/")[1]
+                    
                     print("%s adding file: %s" %(verbosetag_sample, entry))
                     tree_sample.Add(entry)
                 
@@ -254,7 +258,7 @@ def main() :
             #        
             #        eff = d_count_num[type_key][iSample, iCut] / d_count_den[type_key][iSample, iCut] if (d_count_den[type_key][iSample, iCut]) else 0
             #        
-            #        print("[%s: %s] cut %0.6f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, d_count_num[type_key][iSample, iCut], d_count_den[type_key][iSample, iCut], eff))
+            #        print("[%s: %s] cut %0.8f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, d_count_num[type_key][iSample, iCut], d_count_den[type_key][iSample, iCut], eff))
             
             global eval_counts
             
@@ -269,12 +273,13 @@ def main() :
                 
                 weight = l_sample_norm[iSample]
                 
+                count_den = None
                 weighted_count_den = None
                 
                 if (evalDen) :
                     
-                    count = rdframe.Sum(final_weight_name).GetValue()
-                    weighted_count_den = count * weight
+                    count_den = rdframe.Sum(final_weight_name).GetValue()
+                    weighted_count_den = count_den * weight
                 
                 #d_count_den[type_key][iSample:] = weighted_count_den
                 
@@ -291,16 +296,28 @@ def main() :
                 
                 rdframe_mod = rdframe.Define("classifier_cut", classifiercut_expr_mod)
                 
-                count = rdframe_mod.Sum("classifier_cut").GetValue()
-                weighted_count_num = count * weight
+                count_num = rdframe_mod.Sum("classifier_cut").GetValue()
+                weighted_count_num = count_num * weight
                 
                 #d_count_num[type_key][iSample, iCut] = weighted_count_num
                 
                 #eff = d_count_num[type_key][iSample, iCut] / d_count_den[type_key][iSample, iCut] if (d_count_den[type_key][iSample, iCut]) else 0
                 eff = weighted_count_num / weighted_count_den if (weighted_count_den) else 0
                 
-                #log_str.append("[%s: %s] cut %0.6f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, d_count_num[type_key][iSample, iCut], d_count_den[type_key][iSample, iCut], eff))
-                log_str.append("[%s: %s] cut %0.6f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, weighted_count_num, weighted_count_den if (weighted_count_den) else 0, eff))
+                #log_str.append("[%s: %s] cut %0.8f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, d_count_num[type_key][iSample, iCut], d_count_den[type_key][iSample, iCut], eff))
+                log_str.append(
+                    "[%s: %s] "
+                    "cut %0.8f (logit %0.4f), "
+                    "num %0.6e (count %0.4f), "
+                    "den %0.6e (count %0.4f), "
+                    "eff %0.6e, "
+                    "" %(
+                    type_key, d_curve[type_key]["sample"],
+                    cutval, scipy.special.logit(cutval),
+                    weighted_count_num, count_num,
+                    weighted_count_den if (weighted_count_den) else 0, count_den if (count_den) else 0,
+                    eff
+                ))
                 
                 print("\n".join(log_str))
                 
@@ -391,7 +408,7 @@ def main() :
             a_eff_bkg[iCut] = eff_bkg
             
             
-            print("cut %0.6f, eff_sig %0.4e, eff_bkg %0.4e" %(cutval, eff_sig, eff_bkg))
+            print("cut %0.8f (logit %0.4f), eff_sig %0.4e, eff_bkg %0.4e" %(cutval, l_classifiercut_logit[iCut], eff_sig, eff_bkg))
         
         
         #a_eff_sig = array.array("f", numpy.linspace(0.1, 1, 1000))

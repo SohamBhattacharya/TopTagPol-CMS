@@ -3,6 +3,9 @@ from tensorflow import keras
 
 from classification_models.tfkeras import Classifiers
 
+#from tensorflow.keras import mixed_precision
+#policy = mixed_precision.Policy("mixed_float16")
+#mixed_precision.set_global_policy(policy)
 
 # A shape is (N, P_A, C), B shape is (N, P_B, C)
 # D shape is (N, P_A, P_B)
