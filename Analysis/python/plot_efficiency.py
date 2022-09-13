@@ -59,6 +59,7 @@ def main() :
     final_weight_name = "final_weight"
     
     l_hist = []
+    l_graph = []
     l_graph_ROC = []
     l_graph_sigEff = []
     l_graph_bkgEff = []
@@ -350,21 +351,44 @@ def main() :
         #h1_ratio = ROOT.TEfficiency(d_h1_plot["num"], d_h1_plot["den"]).CreateGraph()
         #h1_ratio.SetName(f"h1_curve{iCurve}_ratio")
         
-        h1_ratio.GetXaxis().SetRangeUser(*d_config["xrange"])
-        #h1_ratio.SetMaximum(1.0)
+        #h1_ratio.GetXaxis().SetRangeUser(*d_config["xrange"])
+        ##h1_ratio.SetMaximum(1.0)
+        #
+        #h1_ratio.SetLineColor(d_curve["color"])
+        #h1_ratio.SetLineStyle(d_curve["linestyle"])
+        #h1_ratio.SetLineWidth(3)
+        #h1_ratio.SetMarkerColor(d_curve["color"])
+        #h1_ratio.SetMarkerSize(0)
+        #h1_ratio.SetFillStyle(0)
+        #h1_ratio.SetTitle(d_curve["label"])
+        #print(h1_ratio.GetTitle())
+        #
+        #l_hist.append(h1_ratio)
         
-        h1_ratio.SetLineColor(d_curve["color"])
-        h1_ratio.SetLineStyle(d_curve["linestyle"])
-        h1_ratio.SetLineWidth(3)
-        h1_ratio.SetMarkerColor(d_curve["color"])
-        h1_ratio.SetMarkerSize(0)
-        h1_ratio.SetFillStyle(0)
-        h1_ratio.SetTitle(d_curve["label"])
-        print(h1_ratio.GetTitle())
         
-        l_hist.append(h1_ratio)
+        gr_ratio = ROOT.TGraphAsymmErrors(d_h1_plot["num"], d_h1_plot["den"], "pois")
+        gr_ratio.SetLineColor(d_curve["color"])
+        gr_ratio.SetLineStyle(d_curve["linestyle"])
+        gr_ratio.SetLineWidth(3)
+        gr_ratio.SetMarkerColor(d_curve["color"])
+        gr_ratio.SetMarkerSize(0)
+        gr_ratio.SetFillStyle(0)
+        gr_ratio.SetTitle(d_curve["label"])
+        gr_ratio.GetXaxis().SetRangeUser(*d_config["xrange"])
         
-        #gr_ROC.SetTitle("%s [AUC=%0.4f]" %(gr_ROC.GetTitle(), auc))
+        # Error bars should not exceed 1
+        for iPoint in range(gr_ratio.GetN()) :
+            
+            val = gr_ratio.GetPointY(iPoint)
+            err = gr_ratio.GetErrorYhigh(iPoint)
+            
+            if (err+val > 1) :
+                
+                err = 1 - val
+                err = gr_ratio.SetPointEYhigh(iPoint, err)
+        
+        l_graph.append(gr_ratio)
+        
 
     
     outdir = d_config["outdir"].strip()
@@ -372,12 +396,19 @@ def main() :
     
     #h1_xRange = ROOT.TH1F("h1_xRange", "h1_xRange", 1, d_config["xrange"][0], d_config["xrange"][1])
     
+    outname_base = "efficiency"
+    
+    if (d_config["outname"] and len(d_config["outname"])) :
+        
+        outname_base = d_config["outname"]
+    
     utils.root_plot1D(
-        l_hist = l_hist,
-        l_graph = [],
+        #l_hist = l_hist,
+        l_hist = [],
+        l_graph = l_graph,
         canvassize = (800, 600),
         #outfile = d_config["outfile"],
-        outfile = "%s/%s/efficiency%s.pdf" %(outdir, outtag, outsuffix),
+        outfile = "%s/%s/%s%s.pdf" %(outdir, outtag, outname_base, outsuffix),
         xrange = d_config["xrange"],
         yrange = d_config["yrange"],
         logx = d_config["logx"],
@@ -394,6 +425,7 @@ def main() :
         legendheightscale = 1.0,
         legendwidthscale = 2.0 if (d_config["legendncol"] > 1) else 1.0,
         histdrawopt = "hist E1",
+        graphdrawopt = "E1",
     )
     
     

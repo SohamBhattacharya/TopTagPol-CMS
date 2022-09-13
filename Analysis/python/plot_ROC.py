@@ -181,7 +181,7 @@ def main() :
                     sample_fr = sample
                     tag_fr = d_friend["tag"] if (d_friend["tag"] is not None) else tag
                     
-                    if ("usefriendlist" in d_friend) :
+                    if ("usefriendlist" in d_friend and d_friend["usefriendlist"] is not None) :
                         
                         for fr in d_config["friendlist"][d_friend["usefriendlist"]] :
                             

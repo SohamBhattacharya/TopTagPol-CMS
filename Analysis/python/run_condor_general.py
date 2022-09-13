@@ -1,5 +1,6 @@
 import argparse
 import datetime
+import math
 import numpy
 import os
 import subprocess
@@ -63,7 +64,9 @@ def main() :
         outDir = "%s/%s%s" %(d_config["outputDirBase"], sampleName, outputTag)
         condordir = "%s/%s%s" %(d_config["condordir"], sampleName, outputTag)
         
+        nUnitPerJob = d_config["nUnitPerJob"]
         nFile = len(fileAndTreeNames)
+        nJob = int(math.ceil(nFile / nUnitPerJob))
         
         print("")
         print("*"*100)
@@ -72,9 +75,10 @@ def main() :
         print("Sample file list:", sampleSource)
         print("Output directory:", outDir)
         print("Condor directory:", condordir)
+        #print("# units:", nFile)
         print("# units:", nFile)
-        print("# jobs:", nFile)
-        #print("# units per job:", args.nUnitPerJob)
+        print("# jobs:", nJob)
+        print("# units per job:", nUnitPerJob)
         print("*"*100)
         print("*"*100)
         print("")
@@ -82,7 +86,7 @@ def main() :
         
         d_jobSummary[sampleSource] = {
             "skipped": False,
-            "nJob": nFile,
+            "nJob": nJob,
             "outDir": outDir,
             "condordir": condordir,
         }
@@ -126,18 +130,19 @@ def main() :
         config = "%s/%s" %(condordir, config_name)
         os.system("cp %s %s" %(args.config, config))
         
+        fileAndTreeNames_split = numpy.array_split(fileAndTreeNames, nJob)
         
-        for iFile, fileAndTreeName in enumerate(fileAndTreeNames) :
+        for iJob, fileAndTreeNames_job in enumerate(fileAndTreeNames_split) :
             
             print("")
             
             l_cmd = []
             
-            verbosetag = "[sample %d/%d] [unit %d/%d]" %(iSample+1, nSample, iFile+1, nFile)
+            verbosetag = "[sample %d/%d] [unit %d/%d]" %(iSample+1, nSample, iJob+1, nJob)
             
             #outFileName = ""
             
-            outFileName = "%s_%d.root" %(d_config["outputFileBase"], iFile+1)
+            outFileName = "%s_%d.root" %(d_config["outputFileBase"], iJob+1)
             
             #else :
             #    
@@ -150,12 +155,12 @@ def main() :
             script_cmd = (
                 "python -u {pyfile} "
                 "--config {config} "
-                "--inFileNames {fileAndTreeName} "
+                "--inFileNames {fileAndTreeNames_job} "
                 "--outFileName {outFileName} "
             ).format(
                 pyfile = d_config["pyfile"],
                 config = args.config,
-                fileAndTreeName = fileAndTreeName,
+                fileAndTreeNames_job = " ".join(fileAndTreeNames_job),
                 outFileName = outFileName,
             )
             
@@ -163,8 +168,8 @@ def main() :
             condorconfig = "%s/%s" %(condordir, condorconfig_name)
             condorscript = "%s/%s" %(condordir, condorscript_name)
             
-            condorconfig = condorconfig[0: condorconfig.rfind(".")] + "_%d" %(iFile+1) + condorconfig[condorconfig.rfind("."):]
-            condorscript = condorscript[0: condorscript.rfind(".")] + "_%d" %(iFile+1) + condorscript[condorscript.rfind("."):]
+            condorconfig = condorconfig[0: condorconfig.rfind(".")] + "_%d" %(iJob+1) + condorconfig[condorconfig.rfind("."):]
+            condorscript = condorscript[0: condorscript.rfind(".")] + "_%d" %(iJob+1) + condorscript[condorscript.rfind("."):]
             
             l_cmd.extend([
                 "cp %s %s" %(d_config["condorconfig"], condorconfig),
@@ -174,9 +179,9 @@ def main() :
             ])
             
             
-            condor_log = "%s/job_%d.log" %(condordir, iFile+1)
-            condor_out = "%s/job_%d.out" %(condordir, iFile+1)
-            condor_err = "%s/job_%d.err" %(condordir, iFile+1)
+            condor_log = "%s/job_%d.log" %(condordir, iJob+1)
+            condor_out = "%s/job_%d.out" %(condordir, iJob+1)
+            condor_err = "%s/job_%d.err" %(condordir, iJob+1)
             
             print("%s condor config: %s" %(verbosetag, condorconfig))
             print("%s condor script: %s" %(verbosetag, condorscript))

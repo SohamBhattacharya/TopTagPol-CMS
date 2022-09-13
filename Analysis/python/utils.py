@@ -354,6 +354,7 @@ def root_plot1D(
     gridx = False, gridy = False,
     #ndivisionsx = [5, 5, 0],
     ndivisionsx = None,
+    graphdrawopt = "L",
     histdrawopt = "hist",
     stackdrawopt = "nostack",
     legendpos = "UR",
@@ -435,7 +436,7 @@ def root_plot1D(
         gr.GetXaxis().SetRangeUser(xrange[0], xrange[1])
         #hist.SetFillStyle(0)
         
-        gr.Draw("L SAME")
+        gr.Draw("%s SAME" %(graphdrawopt))
         legend.AddEntry(gr, gr.GetTitle(), "L")
     
     legend.Draw()
@@ -483,6 +484,7 @@ def root_plot1D(
         os.system("mkdir -p %s" %(outdir))
     
     canvas.SaveAs(outfile)
+    canvas.SaveAs(outfile.replace(".pdf", ".png"))
     
     return 0
 

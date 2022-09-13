@@ -4,6 +4,7 @@ samples:
     # filepath:treename
     #- "/nfs/dust/cms/user/sobhatta/work/for_Hala/TT_Mtt-700to1000_TuneCP5_13TeV-powheg-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1_NANOAODSIM/TT_Mtt-700to1000_TuneCP5_13TeV-powheg-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1_NANOAODSIM.txt:Events"
     - "/nfs/dust/cms/user/sobhatta/work/for_Hala/TT_Mtt-1000toInf_TuneCP5_13TeV-powheg-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1_NANOAODSIM/TT_Mtt-1000toInf_TuneCP5_13TeV-powheg-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1_NANOAODSIM.txt:Events"
+nUnitPerJob: 20
 outputDirBase: "output"
 outputFileBase: "output"
 condordir: "condor_jobs"

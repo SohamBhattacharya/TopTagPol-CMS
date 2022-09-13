@@ -102,7 +102,7 @@ samples:
 #        - 
 
 curves:
-    -   label: "AK8 jet [t#bar{t}#; dR(t^{lep}_{gen, vis}) < 0.6, dR(b_{gen}) < 0.6, dR(lep_{gen}) < 0.6]"
+    -   label: "AK8 jet [t#bar{t}, #DeltaR(t^{lep}_{gen, vis}) < 0.6, #DeltaR(b_{gen}) < 0.6, #DeltaR(lep_{gen}) < 0.6]"
         num:
             sample:         "TTJets"
             tree:           "treeMaker/tree"
@@ -122,7 +122,7 @@ curves:
         linestyle: 1
     
     
-    -   label: "AK8 jet [t#bar{t}#; dR(t^{lep}_{gen, vis}) < 0.6]"
+    -   label: "AK8 jet [t#bar{t}, #DeltaR(t^{lep}_{gen, vis}) < 0.6]"
         num:
             sample:         "TTJets"
             tree:           "treeMaker/tree"
@@ -143,7 +143,7 @@ curves:
         linestyle: 2
     
     
-    -   label: "AK8 jet [W'_{6 TeV}#; dR(t^{lep}_{gen, vis}) < 0.6, dR(b_{gen}) < 0.6, dR(lep_{gen}) < 0.6]"
+    -   label: "AK8 jet [W'_{6 TeV}, #DeltaR(t^{lep}_{gen, vis}) < 0.6, #DeltaR(b_{gen}) < 0.6, #DeltaR(lep_{gen}) < 0.6]"
         num:
             sample:         "Wprimetotb_M6000W60"
             tree:           "treeMaker/tree"
@@ -163,7 +163,7 @@ curves:
         linestyle: 1
     
     
-    -   label: "AK8 jet [W'_{6 TeV}#; dR(t^{lep}_{gen, vis}) < 0.6]"
+    -   label: "AK8 jet [W'_{6 TeV}, #DeltaR(t^{lep}_{gen, vis}) < 0.6]"
         num:
             sample:         "Wprimetotb_M6000W60"
             tree:           "treeMaker/tree"
