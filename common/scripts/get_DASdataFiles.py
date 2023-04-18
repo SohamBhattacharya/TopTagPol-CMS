@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from __future__ import print_function
 
 import argparse
@@ -73,6 +75,14 @@ parser.add_argument(
     required = True,
 )
 
+parser.add_argument(
+    "--outDir",
+    help = "Output directory",
+    type = str,
+    required = False,
+    default = "sourceFiles"
+)
+
 
 
 # Parse arguments
@@ -80,7 +90,7 @@ args = parser.parse_args()
 d_args = vars(args)
 
 
-outDir = "sourceFiles"
+
 
 prefix = args.replace[1]
 toReplace = args.replace[0]
@@ -136,7 +146,7 @@ for iSample, sampleName in enumerate(l_sampleName) :
         
         sampleName_mod = sampleName[1:].replace("/", "_")
         
-        outDir_mod = "%s/%s" %(outDir, sampleName_mod)
+        outDir_mod = "%s/%s" %(args.outDir, sampleName_mod)
         
         command = "mkdir -p %s" %(outDir_mod)
         print("Command:", command)

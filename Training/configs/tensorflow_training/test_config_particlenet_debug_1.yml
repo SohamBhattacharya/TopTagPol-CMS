@@ -38,20 +38,20 @@ categories:
     #        - "sourceFiles/ZprimeToTT_M2000_W200_TuneCP2_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_2022-04-05_15-51-57.txt:treeMaker/tree:1:10000"
     
     
-    -
-        name: "lepW"
-        cut: "([jet]_pT_reco > 400) & (abs([jet]_eta_reco) < 2.5) & ([jet]_nConsti_reco >= 1) & ([jet]_nearestGenWDR_reco < 0.6) & ([jet]_nearestGenWIsLeptonic_reco > 0.5)"
-        samples:
-            - "ntupleLists/WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
-            - "ntupleLists/WJetsToLNu_Pt-600ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
-    
-    
-    -
-        name: "lepZ"
-        cut: "([jet]_pT_reco > 400) & (abs([jet]_eta_reco) < 2.5) & ([jet]_nConsti_reco >= 1) & ([jet]_nearestGenZDR_reco < 0.6) & ([jet]_nearestGenZIsLeptonic_reco > 0.5) & ([jet]_nearestGenZlep1DR_reco < 0.6) & ([jet]_nearestGenZlep2DR_reco < 0.6)"
-        samples:
-            - "ntupleLists/DYJetsToLL_Pt-400To650_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
-            - "ntupleLists/DYJetsToLL_Pt-650ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
+    #-
+    #    name: "lepW"
+    #    cut: "([jet]_pT_reco > 400) & (abs([jet]_eta_reco) < 2.5) & ([jet]_nConsti_reco >= 1) & ([jet]_nearestGenWDR_reco < 0.6) & ([jet]_nearestGenWIsLeptonic_reco > 0.5)"
+    #    samples:
+    #        - "ntupleLists/WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
+    #        - "ntupleLists/WJetsToLNu_Pt-600ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
+    #
+    #
+    #-
+    #    name: "lepZ"
+    #    cut: "([jet]_pT_reco > 400) & (abs([jet]_eta_reco) < 2.5) & ([jet]_nConsti_reco >= 1) & ([jet]_nearestGenZDR_reco < 0.6) & ([jet]_nearestGenZIsLeptonic_reco > 0.5) & ([jet]_nearestGenZlep1DR_reco < 0.6) & ([jet]_nearestGenZlep2DR_reco < 0.6)"
+    #    samples:
+    #        - "ntupleLists/DYJetsToLL_Pt-400To650_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
+    #        - "ntupleLists/DYJetsToLL_Pt-650ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1_MINIAODSIM_latest.txt:treeMaker/tree:1:10000"
     
     
     -
@@ -126,7 +126,7 @@ features:
     - "max(-1.0, [jet]_consti_ele_gsfhits_reco)"
     - "max(-1.0, [jet]_consti_ele_expectedInnerHits_reco)"
     - "max(-1.0, [jet]_consti_ele_fbrem_reco)"
-    - "max(-1.0, [jet]_consti_ele_conversionVertexFitProbability_reco)"
+    #- "max(-1.0, [jet]_consti_ele_conversionVertexFitProbability_reco)"
     - "max(-1.0, [jet]_consti_ele_ep_reco)"
     - "max(-1.0, [jet]_consti_ele_eelepout_reco)"
     - "max(-1.0, [jet]_consti_ele_IoEmIop_reco)"
@@ -208,10 +208,11 @@ reweightBranches:
 
 reweightRefCategory: "lepTop"
 
-jetName : "[jet]:jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+#jetName : "[jet]:jet_selectedPatJetsAK8PFPuppi_boost_2_1_sd_z0p1_b0_R1"
+jetName : "[jet]:jet_selectedPatJetsAK8PFPuppi_boost_2_1"
 
 cpuFrac: 0.99
-network: particle_net_mod1d
+network: particle_net_mod1b
 testFraction: 0.1
 batchSize: 256
 sliceSize: 16

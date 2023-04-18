@@ -1,6 +1,7 @@
 import argparse
 import ctypes
 import gc
+import glob
 import io
 import matplotlib
 import matplotlib.colors
@@ -67,6 +68,13 @@ d_datetime_fmt[0] = "+%Y-%m-%d_%H-%M-%S"
 d_datetime_fmt[1] = "+%Y-%m-%d_%H-%M-%N"
 
 
+def natural_sort(l):
+    
+    convert = lambda text: int(text) if text.isdigit() else text.lower()
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    return sorted(l, key=alphanum_key)
+
+
 def load_config(cfg) :
     
     content = cfg
@@ -111,32 +119,56 @@ def getMemoryMB(process = -1) :
     return mem
 
 
-def get_fileAndTreeNames(in_list) :
+def get_fileAndTreeNames(in_list, skip = None, filePrefix = "") :
     
     fileAndTreeNames = []
     
-    for fName in in_list :
-        
-        if (".root" in fName) :
-            
-            fileAndTreeNames.append(fName)
-        
-        elif (".txt" in fName) :
-            
-            sourceFile, treeName = fName.strip().split(":")
-            
-            rootFileNames = numpy.loadtxt(sourceFile, dtype = str, delimiter = "*"*100)
-            
-            for rootFileName in rootFileNames :
-                
-                fileAndTreeNames.append("%s:%s" %(rootFileName, treeName))
-        
-        else :
-            
-            print("Error. Invalid syntax for fileAndTreeNames: %s" %(fName))
-            exit(1)
+    skipFileList = []
     
-    return fileAndTreeNames
+    if skip :
+        
+        skipFileList = numpy.loadtxt(skip, dtype = str, delimiter = "*"*100)
+    
+    for entry in in_list :
+        
+        for fName in entry.split(",") :
+            
+            rootFileNames = []
+            
+            if (".root" in fName) :
+                
+                filePattern, treeName = fName.strip().split(":")
+                rootFileNames = glob.glob(filePattern)
+                
+                for rootFileName in rootFileNames :
+                    
+                    if (rootFileName in skipFileList) :
+                        
+                        print(f"Skipping file: {rootFileName}")
+                        continue
+                    
+                    fileAndTreeNames.append(f"{filePrefix}{rootFileName}:{treeName}")
+            
+            elif (".txt" in fName) :
+                
+                sourceFile, treeName = fName.strip().split(":")
+                rootFileNames = numpy.loadtxt(sourceFile, dtype = str, delimiter = "*"*100)
+                
+                for rootFileName in rootFileNames :
+                    
+                    if (rootFileName in skipFileList) :
+                        
+                        print(f"Skipping file: {rootFileName}")
+                        continue
+                    
+                    fileAndTreeNames.append(f"{filePrefix}{rootFileName}:{treeName}")
+            
+            else :
+                
+                print("Error. Invalid syntax for fileAndTreeNames: %s" %(fName))
+                exit(1)
+    
+    return natural_sort(fileAndTreeNames)
 
 
 def format_file(filename, d, execute = False) :
@@ -182,6 +214,17 @@ def get_name_withtimestamp(dirname) :
         return dirname_new
     
     return None
+
+
+def root_TH1_fixFlowBins(hist) :
+    
+    nBin = hist.GetNbinsX()
+    
+    hist.SetBinContent(1, hist.GetBinContent(1)+hist.GetBinContent(0))
+    hist.GetBinContent(0, 0)
+    
+    hist.SetBinContent(nBin, hist.GetBinContent(nBin)+hist.GetBinContent(nBin+1))
+    hist.GetBinContent(nBin+1, 0)
 
 
 def root_TGraph_to_TH1(graph, setError = True) :
@@ -345,15 +388,18 @@ def root_plot1D(
     xrange,
     yrange,
     l_graph = [],
+    l_line = [],
     canvassize = (600, 600),
     logx = False, logy = False,
     title = "",
     xtitle = "", ytitle = "",
+    xtitlescale = 1, ytitlescale = 1,
     centertitlex = True, centertitley = True,
     centerlabelx = False, centerlabely = False,
     gridx = False, gridy = False,
     #ndivisionsx = [5, 5, 0],
     ndivisionsx = None,
+    forcedivs = False,
     graphdrawopt = "L",
     histdrawopt = "hist",
     stackdrawopt = "nostack",
@@ -382,6 +428,7 @@ def root_plot1D(
     
     legendHeight = legendheightscale * 0.06 * (len(l_hist)+len(l_graph))
     legendWidth = legendwidthscale * 0.4
+    #legendWidth = legendwidthscale * 0.9
     
     padTop = 1 - canvas.GetTopMargin() - 1*ROOT.gStyle.GetTickLength("y")
     padRight = 1 - canvas.GetRightMargin() - 0.6*ROOT.gStyle.GetTickLength("x")
@@ -439,15 +486,19 @@ def root_plot1D(
         gr.Draw("%s SAME" %(graphdrawopt))
         legend.AddEntry(gr, gr.GetTitle(), "L")
     
+    for ln in l_line :
+        
+        ln.Draw("L same")
+    
     legend.Draw()
+    
+    if (ndivisionsx is not None) :
+        
+        stack.GetXaxis().SetNdivisions(ndivisionsx[0], ndivisionsx[1], ndivisionsx[2], not forcedivs)
     
     stack.GetXaxis().SetRangeUser(xrange[0], xrange[1])
     stack.SetMinimum(yrange[0])
     stack.SetMaximum(yrange[1])
-    
-    if (ndivisionsx is not None) :
-        
-        stack.GetXaxis().SetNdivisions(ndivisionsx[0], ndivisionsx[1], ndivisionsx[2], False)
     
     #stack.GetXaxis().SetLabelSize(ROOT.gStyle.GetLabelSize("X") * xLabelSizeScale)
     #stack.GetYaxis().SetLabelSize(ROOT.gStyle.GetLabelSize("Y") * yLabelSizeScale)
@@ -485,6 +536,8 @@ def root_plot1D(
     
     canvas.SaveAs(outfile)
     canvas.SaveAs(outfile.replace(".pdf", ".png"))
+    
+    canvas.Close()
     
     return 0
 

@@ -1,0 +1,57 @@
+
+ZprimeToTTJets_M1000_W10:
+    names:
+        - "ZprimeToTTJets_M1000_W10_TuneCP2_13TeV-madgraphMLM-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
+
+
+ZprimeToTTJets_M6000_W60:
+    names:
+        - "ZprimeToTTJets_M6000_W60_TuneCP2_13TeV-madgraphMLM-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
+
+
+ZprimeToTT_M3000_W30:
+    names:
+        - "ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraph-pythiaMLM-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
+
+
+QCD:
+    names:
+        - "QCD_Pt_300to470_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_470to600_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_600to800_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_800to1000_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8"
+        - "QCD_Pt_3200toInf_TuneCP5_13TeV_pythia8"
+    weights:
+        - 6826.0
+        - 552.6
+        - 156.6
+        - 26.32
+        - 7.5
+        - 0.6479
+        - 0.08715
+        - 0.005242
+        - 0.0001357
+    event_no_br: "event_no"
+    #nevents:
+    #    - "57910000.0/7"
+    #    - "52448000.0/7"
+    #    - "67508000.0/7"
+    #    - "37160000.0/7"
+    #    - "19730000.0/7"
+    #    - "10982000.0/7"
+    #    - "5491000.0/7"
+    #    - "2997000.0/7"
+    #    - "1000000.0/7"

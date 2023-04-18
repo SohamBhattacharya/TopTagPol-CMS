@@ -504,3 +504,9 @@ def benchmark(dataset, num_epochs = 5):
             # Performing a training step
             time.sleep(0.1)
     print("Execution time:", time.perf_counter() - start_time)
+
+
+def natural_sort(l):
+    convert = lambda text: int(text) if text.isdigit() else text.lower()
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    return sorted(l, key=alphanum_key)

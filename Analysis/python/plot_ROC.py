@@ -2,9 +2,11 @@ from __future__ import print_function
 
 import argparse
 import array
+import awkward
 import copy
 import ctypes
 import gc
+import glob
 import matplotlib
 import matplotlib.pyplot
 import multiprocessing
@@ -27,6 +29,7 @@ import ROOT
 ROOT.gROOT.SetBatch(1)
 
 nThread = 5
+niceness = 10
 
 ROOT.ROOT.EnableImplicitMT(nThread)
 #ROOT.ROOT.EnableImplicitMT()
@@ -109,15 +112,6 @@ def main() :
         d_count_num = {}
         d_count_den = {}
         
-        #d_rdframe = mpmanager.dict()
-        #
-        #d_count_num_mp = mpmanager.dict()
-        #d_count_den_mp = mpmanager.dict()
-        #
-        #d_count_num = mpmanager.dict()
-        #d_count_den = mpmanager.dict()
-        
-        
         for type_key in ["sig", "bkg"] :
             
             d_rdframe[type_key] = []
@@ -125,9 +119,31 @@ def main() :
             l_tree_sample = []
             l_tree_friend = []
             
+            type_key
+            
             l_sample_name   = d_config["samples"][d_curve[type_key]["sample"]]["names"]
             l_sample_weight = d_config["samples"][d_curve[type_key]["sample"]]["weights"]
             l_sample_norm   = [1] * len(l_sample_weight)
+            
+            # Fraction of files to use:
+            sample_frac = 1
+            
+            if ("frac" in d_curve[type_key]) :
+                
+                sample_frac = d_curve[type_key]["frac"]
+            
+            l_sample_nevent = None
+            
+            #if ("nevents" in d_config["samples"][d_curve[type_key]["sample"]]) :
+            #    
+            #    l_sample_nevent = d_config["samples"][d_curve[type_key]["sample"]]["nevents"]
+            
+            event_no_br = None
+            
+            if ("event_no_br" in d_config["samples"][d_curve[type_key]["sample"]]) :
+                
+                event_no_br = d_config["samples"][d_curve[type_key]["sample"]]["event_no_br"]
+            
             
             weight_expr = d_curve[type_key]["weight"].format(**d_curve["vardict"])
             classifier_expr = d_curve["classifier"].format(**d_curve["vardict"])
@@ -135,20 +151,17 @@ def main() :
             d_count_num[type_key] = numpy.zeros((len(l_sample_name), len(l_classifiercut)))
             d_count_den[type_key] = numpy.zeros((len(l_sample_name), len(l_classifiercut)))
             
-            #d_count_num_mp[type_key] = mpmanager.Array("d", [0.0] * (len(l_sample_name) * len(l_classifiercut)))
-            #d_count_den_mp[type_key] = mpmanager.Array("d", [0.0] * (len(l_sample_name) * len(l_classifiercut)))
-            #
-            ##d_count_num_mp[type_key] = multiprocessing.Array(ctypes.c_double, len(l_sample_name) * len(l_classifiercut))
-            ##d_count_den_mp[type_key] = multiprocessing.Array(ctypes.c_double, len(l_sample_name) * len(l_classifiercut))
-            #
-            #d_count_num[type_key] = numpy.frombuffer(d_count_num_mp[type_key].get_obj()).reshape((len(l_sample_name), len(l_classifiercut)))
-            #d_count_den[type_key] = numpy.frombuffer(d_count_den_mp[type_key].get_obj()).reshape((len(l_sample_name), len(l_classifiercut)))
-            
             for iSample, sample_entry in enumerate(l_sample_name) :
                 
                 verbosetag_sample = "[sample %d/%d]" %(iSample+1, len(l_sample_name))
                 
-                sample, tag = sample_entry.split(":")
+                sample = sample_entry
+                tag = ""
+                
+                if (":" in sample_entry) :
+                    
+                    sample, tag = sample_entry.split(":")
+                
                 sample_weight = l_sample_weight[iSample]
                 
                 sample_source = d_curve[type_key]["source"].format(
@@ -156,10 +169,28 @@ def main() :
                     tag = tag,
                 )
                 
-                l_sample_file = numpy.loadtxt(sample_source, dtype = str, delimiter = "x"*100) ##[0: 1]
+                if (sample_source.endswith(".txt")) :
+                    
+                    l_sample_file = numpy.loadtxt(sample_source, dtype = str, delimiter = "x"*100)
+                
+                elif (sample_source.endswith(".root")) :
+                    
+                    l_sample_file = glob.glob(sample_source)
+                
+                l_sample_file = utils.natural_sort(l_sample_file)
+                
+                sample_nfile = len(l_sample_file)
+                sample_nfile_use = sample_nfile
+                
+                if (sample_frac > 0) :
+                    
+                    sample_nfile_use = max(1, int(sample_frac*len(l_sample_file)))
+                    l_sample_file = l_sample_file[0: sample_nfile_use]
+                
                 l_sample_filename = [entry.split("/")[-1] for entry in l_sample_file]
                 
-                print("l_sample_file:\n", "\n".join(l_sample_file))
+                print(f"l_sample_file (using {sample_nfile_use}/{sample_nfile}={sample_frac*100}% of all files):")
+                print("\n".join(l_sample_file))
                 
                 tree_sample = ROOT.TChain(d_curve[type_key]["tree"])
                 
@@ -220,45 +251,32 @@ def main() :
                 rdframe_sample = ROOT.RDataFrame(tree_sample)
                 
                 weight_expr_sample = weight_expr
-                l_sample_norm[iSample] = float(sample_weight)/tree_sample.GetEntries()
+                
+                nevent = tree_sample.GetEntries()
+                
+                #if (l_sample_nevent) :
+                #    
+                #    nevent = eval(l_sample_nevent[iSample])
+                
+                if (event_no_br) :
+                    
+                    #a_event_no = awkward.flatten(uproot.concatenate(files = tree_sample, expressions = event_no_br), axis = None)
+                    #print(a_event_no)
+                    #nevent = len(numpy.unique(a_event_no))
+                    
+                    #print(event_no_br)
+                    #print(rdframe_sample.Take)
+                    a_event_no = rdframe_sample.Take["long long"](event_no_br).GetValue()
+                    #print(a_event_no)
+                    nevent = len(numpy.unique(a_event_no))
+                
+                l_sample_norm[iSample] = float(sample_weight)/nevent
                 
                 rdframe_sample = rdframe_sample.Define(final_weight_name, weight_expr_sample)
                 rdframe_sample = rdframe_sample.Define(classifier_name, classifier_expr)
                 
                 d_rdframe[type_key].append(rdframe_sample)
             
-            
-            #for iSample, rdframe in enumerate(d_rdframe[type_key]) :
-            #    
-            #    print("")
-            #    print(l_sample_name[iSample])
-            #    
-            #    weight = l_sample_norm[iSample]
-            #    
-            #    count = rdframe.Sum(final_weight_name).GetValue()
-            #    weighted_count = count * weight
-            #    
-            #    classifiercut_expr = "(%s) * (%s)" %(final_weight_name, d_curve["classifiercut"])
-            #    
-            #    d_count_den[type_key][iSample:] = weighted_count
-            #    
-            #    for iCut, cutval in enumerate(l_classifiercut) :
-            #        
-            #        classifiercut_expr_mod = classifiercut_expr.format(
-            #            classifier = classifier_name,
-            #            value = cutval,
-            #        )
-            #        
-            #        rdframe_mod = rdframe.Define("classifier_cut", classifiercut_expr_mod)
-            #        
-            #        count = rdframe_mod.Sum("classifier_cut").GetValue()
-            #        weighted_count = count * weight
-            #        
-            #        d_count_num[type_key][iSample, iCut] = weighted_count
-            #        
-            #        eff = d_count_num[type_key][iSample, iCut] / d_count_den[type_key][iSample, iCut] if (d_count_den[type_key][iSample, iCut]) else 0
-            #        
-            #        print("[%s: %s] cut %0.8f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, d_count_num[type_key][iSample, iCut], d_count_den[type_key][iSample, iCut], eff))
             
             global eval_counts
             
@@ -304,15 +322,14 @@ def main() :
                 #eff = d_count_num[type_key][iSample, iCut] / d_count_den[type_key][iSample, iCut] if (d_count_den[type_key][iSample, iCut]) else 0
                 eff = weighted_count_num / weighted_count_den if (weighted_count_den) else 0
                 
-                #log_str.append("[%s: %s] cut %0.8f, num %0.6e, den %0.6e, eff %0.4e" %(type_key, d_curve[type_key]["sample"], cutval, d_count_num[type_key][iSample, iCut], d_count_den[type_key][iSample, iCut], eff))
                 log_str.append(
-                    "[%s: %s] "
+                    "[%s: %s: %s] "
                     "cut %0.8f (logit %0.4f), "
                     "num %0.6e (count %0.4f), "
-                    "den %0.6e (count %0.4f), "
+                    "den %0.6e (count %0.4f), " 
                     "eff %0.6e, "
                     "" %(
-                    type_key, d_curve[type_key]["sample"],
+                    type_key, d_curve[type_key]["sample"], l_sample_name[iSample],
                     cutval, scipy.special.logit(cutval),
                     weighted_count_num, count_num,
                     weighted_count_den if (weighted_count_den) else 0, count_den if (count_den) else 0,
@@ -331,7 +348,7 @@ def main() :
             
             ncpu_use = max(1, ncpu_use)
             
-            pool = multiprocessing.Pool(processes = ncpu_use, maxtasksperchild = 1)
+            pool = multiprocessing.Pool(processes = ncpu_use, maxtasksperchild = 1, initializer = os.nice, initargs = (niceness,))
             l_job = []
             
             for iSample, rdframe in enumerate(d_rdframe[type_key]) :

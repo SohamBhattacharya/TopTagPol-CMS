@@ -235,6 +235,9 @@ if (options.depGraph) :
 
 from JMEAnalysis.JetToolbox.jetToolbox_cff import jetToolbox
 
+from PhysicsTools.PatAlgos.tools.jetTools import updateJetCollection
+from RecoBTag.ONNXRuntime.pfParticleNet_cff import _pfParticleNetJetTagsAll as pfParticleNetJetTagsAll
+
 l_akJetPuppi_rParam = [4, 8, 15]
 l_jetPuppiCollection = []
 
@@ -245,21 +248,50 @@ for rParam in l_akJetPuppi_rParam :
         
         l_jetPuppiCollection.append("slimmedJetsPuppi")
     
+    elif (rParam == 8) :
+        
+        l_jetPuppiCollection.append("slimmedJetsAK8PFPuppiSoftDropPacked")
+    
     else :
         
-        jetToolbox(
-            proc = process,
-            jetType = "ak%d" %(rParam),
-            jetSequence = "jetSequenceAK%d" %(rParam),
-            outputFile = "noOutput",
-            PUMethod = "Puppi",
-            dataTier = "miniAOD",
-            runOnMC = True,
-            #JETCorrPayload = "",
-            #addSoftDrop = True,
-        )
+        #jetToolbox(
+        #    proc = process,
+        #    jetType = "ak%d" %(rParam),
+        #    jetSequence = "jetSequenceAK%d" %(rParam),
+        #    outputFile = "noOutput",
+        #    PUMethod = "Puppi",
+        #    dataTier = "miniAOD",
+        #    runOnMC = True,
+        #    #JETCorrPayload = "",
+        #    #addSoftDrop = True,
+        #    bTagDiscriminators = pfParticleNetJetTagsAll,
+        #)
         
         l_jetPuppiCollection.append("selectedPatJetsAK%dPFPuppi" %(rParam))
+    
+    jetToolbox(
+        proc = process,
+        jetType = "ak%d" %(rParam),
+        jetSequence = "jetSequenceAK%d" %(rParam),
+        outputFile = "noOutput",
+        PUMethod = "Puppi",
+        dataTier = "miniAOD",
+        runOnMC = True,
+        #JETCorrPayload = "",
+        #addSoftDrop = True,
+        bTagDiscriminators = pfParticleNetJetTagsAll,
+    )
+    
+    #updateJetCollection(
+    #   process,
+    #   jetSource = cms.InputTag(l_jetPuppiCollection[-1]),
+    #   pvSource = cms.InputTag("offlineSlimmedPrimaryVertices"),
+    #   svSource = cms.InputTag("slimmedSecondaryVertices"),
+    #   rParam = float("0.%d" %(rParam)),
+    #   #jetCorrections = ("AK8PFPuppi", cms.vstring(["L2Relative", "L3Absolute"]), "None"),
+    #   #jetCorrections = None,
+    #   btagDiscriminators = pfParticleNetJetTagsAll,
+    #)
 
 
 from RecoBTag.SecondaryVertex.bVertexFilter_cfi import *
@@ -272,7 +304,6 @@ process.bVertexFilter = cms.EDFilter(
     useVertexKinematicAsJetAxis = bVertexFilter.useVertexKinematicAsJetAxis,
     minVertices = bVertexFilter.minVertices,
 )
-
 
 recoJetPSet = cms.PSet(
     jetCollection = cms.InputTag(""),
@@ -290,6 +321,8 @@ recoJetPSet = cms.PSet(
     jetLorentzBoost_e0 = cms.string("2"),
     
     maxTauN = cms.int32(4),
+    
+    jetTaggerNames = cms.vstring(pfParticleNetJetTagsAll),
 )
 
 l_recoJetPSet = []
@@ -368,7 +401,7 @@ process.treeMaker = cms.EDAnalyzer(
 #    process.filter_seq_genPart = cms.Sequence(process.GenParticleFilter_part)
 
 
-print "Deleting existing output file."
+print("Deleting existing output file.")
 os.system("rm %s" %(outFile))
 
 
@@ -396,18 +429,21 @@ process.p = cms.Path(
     process.treeMaker
 )
 
+#process.load("CommonTools.ParticleFlow.pfNoPileUpJME_cff")
+#process.p.associate(process.pfNoPileUpJMETask)
+
 # The endpath needs to be inserted, otherwise the JetToolBox is not running for some reason
 process.schedule.insert(0, process.endpath)
 process.schedule.insert(0, process.p)
 
-print "\n"
-print "*"*50
-print "process:", process
-print "process.schedule:", process.schedule
-print "*"*50
+print("\n")
+print("*"*50)
+print("process:", process)
+print("process.schedule:", process.schedule)
+print("*"*50)
 #print "process.schedule.__dict__:", process.schedule.__dict__
 #print "*"*50
-print "\n"
+print("\n")
 
 
 # Tracer
@@ -424,7 +460,7 @@ if (options.memoryCheck) :
     )
 
 
-#Timing
+# Timing
 if (options.printTime) :
 
     process.Timing = cms.Service("Timing",

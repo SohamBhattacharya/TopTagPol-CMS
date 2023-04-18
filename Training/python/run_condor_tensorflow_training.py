@@ -15,7 +15,7 @@ def main() :
     
     
     # Argument parser
-    parser = argparse.ArgumentParser(formatter_class = argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
     
     parser.add_argument(
         "--tag",

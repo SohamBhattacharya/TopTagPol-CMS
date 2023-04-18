@@ -1,0 +1,6 @@
+[submodule "run_DNNTuples/DNNTuples"]
+	path = run_DNNTuples/DNNTuples
+	url = git@github.com:SohamBhattacharya/DNNTuples.git
+[submodule "weaver-core"]
+	path = weaver-core
+	url = git@github.com:SohamBhattacharya/weaver-core.git

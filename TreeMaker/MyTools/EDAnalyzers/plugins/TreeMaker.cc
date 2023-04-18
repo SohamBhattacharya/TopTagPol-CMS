@@ -171,8 +171,9 @@ class TreeMaker : public edm::one::EDAnalyzer<edm::one::SharedResources>
     MVAVariableManager <pat::Electron> eleMvaVarManager;
     //MVAVariableManager <reco::GsfElectron> eleMvaVarManager;
     
-    MVAVariableHelper <pat::Electron> eleMvaVarHelper;
+    //MVAVariableHelper <pat::Electron> eleMvaVarHelper;
     //MVAVariableHelper <reco::GsfElectron> eleMvaVarHelper;
+    MVAVariableHelper eleMvaVarHelper;
     
     
     // Muons //
@@ -180,7 +181,8 @@ class TreeMaker : public edm::one::EDAnalyzer<edm::one::SharedResources>
     
     std::string muMvaVariablesFile;
     MVAVariableManager <pat::Muon> muMvaVarManager;
-    MVAVariableHelper <pat::Muon> muMvaVarHelper; // Just a dummy, don't need it for muons
+    //MVAVariableHelper <pat::Muon> muMvaVarHelper; // Just a dummy, don't need it for muons
+    MVAVariableHelper muMvaVarHelper; // Just a dummy, don't need it for muons
     
     
     
@@ -209,9 +211,9 @@ class TreeMaker : public edm::one::EDAnalyzer<edm::one::SharedResources>
 // constructors and destructor
 //
 TreeMaker::TreeMaker(const edm::ParameterSet& iConfig) :
-    eleMvaVarManager(iConfig.getParameter <std::string>("eleMvaVariablesFile")),
+    eleMvaVarManager(iConfig.getParameter <std::string>("eleMvaVariablesFile"), MVAVariableHelper::indexMap()),
     eleMvaVarHelper(consumesCollector()),
-    muMvaVarManager(iConfig.getParameter <std::string>("muMvaVariablesFile")),
+    muMvaVarManager(iConfig.getParameter <std::string>("muMvaVariablesFile"), MVAVariableHelper::indexMap()),
     muMvaVarHelper(consumesCollector())
 {
     usesResource("TFileService");
@@ -1186,6 +1188,14 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                 //    jet.caloSpecific().mMaxEInHadTowers,
                 //    jet.caloSpecific().mTowersArea
                 //);
+                
+                printf(
+                    "probTbel %f, "
+                    "probTbmu %f, "
+                    "\n",
+                    jet.bDiscriminator("pfParticleNetJetTags:probTbel"),
+                    jet.bDiscriminator("pfParticleNetJetTags:probTbmu")
+                );
             }
             
             std::vector <fastjet::PseudoJet> fj_input_jet;
@@ -1278,6 +1288,14 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
             jetInfo->v_jet_y_reco.push_back(jet_4mom.rapidity());
             jetInfo->v_jet_phi_reco.push_back(jet_4mom.phi());
             jetInfo->v_jet_m_reco.push_back(jet_4mom.m());
+            
+            
+            // Jet tagger stuff
+            for(int iVar = 0; iVar < (int) jetInfo->jetTaggerNames.size(); iVar++)
+            {
+                std::string varName = jetInfo->jetTaggerNames.at(iVar);
+                jetInfo->m_jet_taggerInfo_reco[varName].push_back(jet.bDiscriminator(varName));
+            }
             
             
             // Secondary vertex stuff
@@ -1765,7 +1783,7 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                 // Get matching electron
                 int iEle = -1;
                 int nearestEleIdx = -1;
-                int nearestElePt = -1;
+                double nearestElePt = -1;
                 //double minDR = 9999;
                 
                 for(const auto &ele : electrons_reco)
@@ -1787,7 +1805,8 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                     
                     edm::Ptr <pat::Electron> elePtr(handle_electron_reco, nearestEleIdx);
                     
-                    std::vector <float> extraVariables = eleMvaVarHelper.getAuxVariables(elePtr, iEvent);
+                    //std::vector <float> extraVariables = eleMvaVarHelper.getAuxVariables(elePtr, iEvent);
+                    std::vector <float> extraVariables = eleMvaVarHelper.getAuxVariables(iEvent);
                     
                     for(int iVar = 0; iVar < eleMvaVarManager.getNVars(); iVar++)
                     {
@@ -1806,7 +1825,7 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                 // Get matching muon
                 int iMu = -1;
                 int nearestMuIdx = -1;
-                int nearestMuPt = -1;
+                double nearestMuPt = -1;
                 //double minDR = 9999;
                 
                 for(const auto &mu : muons_reco)
@@ -1836,7 +1855,8 @@ void TreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                     
                     //printf("Muon segmentCompatibility %f \n", muPtr->segmentCompatibility());
                     
-                    std::vector <float> extraVariables = muMvaVarHelper.getAuxVariables(muPtr, iEvent);
+                    //std::vector <float> extraVariables = muMvaVarHelper.getAuxVariables(muPtr, iEvent);
+                    std::vector <float> extraVariables = muMvaVarHelper.getAuxVariables(iEvent);
                     
                     for(int iVar = 0; iVar < muMvaVarManager.getNVars(); iVar++)
                     {

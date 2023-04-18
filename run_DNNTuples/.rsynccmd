@@ -1,0 +1,1 @@
+rsync -asP --exclude-from .rsyncexclude DNNTuples sobhatta@naf-cms.desy.de:/nfs/dust/cms/user/sobhatta/work/TopTagPol/run_DNNTuples/

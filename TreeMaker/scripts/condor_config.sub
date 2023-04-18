@@ -11,7 +11,7 @@ should_transfer_files = IF_NEEDED
 
 when_to_transfer_output = ON_EXIT
 
-getenv = True
+getenv = False
 
 # Send the job to Held state on failure. 
 #on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)

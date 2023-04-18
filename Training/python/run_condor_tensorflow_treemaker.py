@@ -12,7 +12,7 @@ def main() :
     cwd = os.getcwd()
     
     # Argument parser
-    parser = argparse.ArgumentParser(formatter_class = argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
     
     parser.add_argument(
         "--config",

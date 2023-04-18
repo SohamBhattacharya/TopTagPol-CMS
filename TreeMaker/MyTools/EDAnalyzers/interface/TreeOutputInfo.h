@@ -209,6 +209,8 @@ namespace TreeOutputInfo
         
         int maxTauN;
         
+        std::vector <std::string> jetTaggerNames;
+        
         std::string str_jetName;
         
         
@@ -323,6 +325,8 @@ namespace TreeOutputInfo
         std::vector <std::vector <double> > vv_jet_consti_pTwrtJet_reco;
         std::vector <std::vector <double> > vv_jet_consti_dRwrtJet_reco;
         
+        std::unordered_map <std::string, std::vector <double> > m_jet_taggerInfo_reco;
+        
         std::unordered_map <std::string, std::vector <std::vector <double> > > m_jet_consti_electronInfo_reco;
         std::unordered_map <std::string, std::vector <std::vector <double> > > m_jet_consti_muonInfo_reco;
         
@@ -371,6 +375,9 @@ namespace TreeOutputInfo
             maxTauN = jetPSet.getParameter <int>("maxTauN");
             
             
+            jetTaggerNames = jetPSet.getParameter <std::vector <std:: string> >("jetTaggerNames");
+            
+            
             char jetName[1000];
             
             sprintf(
@@ -382,20 +389,21 @@ namespace TreeOutputInfo
                 str_jetLorentzBoost_e0.c_str(), str_jetRescale_m0.c_str()
             );
             
+            str_jetName = jetName;
+            
             if(apply_sd)
             {
+                char jetName_suffix[1000];
+                
                 sprintf(
-                    jetName,
-                    "%s_"
-                    "sd_z%s_b%s_R%s"
+                    jetName_suffix,
+                    "_sd_z%s_b%s_R%s"
                     ,
-                    jetName,
                     str_sd_zcut.c_str(), str_sd_beta.c_str(), str_sd_R0.c_str()
                 );
+                
+                str_jetName += std::string(jetName_suffix);
             }
-            
-            
-            str_jetName = jetName;
         }
         
         
@@ -704,6 +712,26 @@ namespace TreeOutputInfo
         }
         
         
+        void createJetTaggerBranches(TTree *tree, std::vector <std::string> jetTaggerNames)
+        {
+            for(int iVar = 0; iVar < (int) jetTaggerNames.size(); iVar++)
+            {
+                std::string varNameKey = jetTaggerNames.at(iVar);
+                
+                std::string varName = jetTaggerNames.at(iVar);
+                std::replace(varName.begin(), varName.end(), ':', '_');
+                
+                char brName[2000];
+                sprintf(brName, "jet_%s_%s", str_jetName.c_str(), varName.c_str());
+                
+                std::vector <double> v_temp;
+                m_jet_taggerInfo_reco[varNameKey] = v_temp;
+                
+                tree->Branch(brName, &m_jet_taggerInfo_reco[varNameKey]);
+            }
+        }
+        
+        
         void createElectronBranches(TTree *tree, const MVAVariableManager <pat::Electron> &eleMvaVarManager)
         {
             for(int iVar = 0; iVar < eleMvaVarManager.getNVars(); iVar++)
@@ -855,6 +883,11 @@ namespace TreeOutputInfo
             vv_jet_consti_pTwrtJet_reco.clear();
             vv_jet_consti_dRwrtJet_reco.clear();
             
+            
+            for(auto &kv : m_jet_taggerInfo_reco)
+            {
+                kv.second.clear();
+            }
             
             for(auto &kv : m_jet_consti_electronInfo_reco)
             {
@@ -1665,6 +1698,7 @@ namespace TreeOutputInfo
             }
             
             jetInfo->createBranches(tree);
+            jetInfo->createJetTaggerBranches(tree, jetInfo->jetTaggerNames);
             jetInfo->createElectronBranches(tree, eleMvaVarManager);
             jetInfo->createMuonBranches(tree, muMvaVarManager);
             
