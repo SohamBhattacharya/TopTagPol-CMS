@@ -1,26 +1,12 @@
 from __future__ import print_function
 
 import argparse
-import array
-import copy
-import ctypes
 import gc
-import matplotlib
-import matplotlib.pyplot
+import glob
 import multiprocessing
 import numpy
-import os
 import pprint
-import scipy
-import scipy.interpolate
-import scipy.special
-import sklearn
-import sklearn.metrics
-#import tabulate
-import time
-import uproot
 
-import CMS_lumi
 import utils
 
 import ROOT
@@ -80,10 +66,7 @@ def main() :
     
     for iCurve, d_curve in enumerate(d_config["curves"]) :
         
-        mpmanager = multiprocessing.Manager()
-        
         d_rdframe = {}
-        
         d_h1_plot = {}
         
         for type_key in ["num", "den"] :
@@ -117,10 +100,21 @@ def main() :
                     tag = tag,
                 )
                 
-                l_sample_file = numpy.loadtxt(sample_source, dtype = str, delimiter = "x"*100) ##[0: 1]
+                l_sample_file = []
+                
+                if (sample_source.endswith(".txt")) :
+                    
+                    l_sample_file = numpy.loadtxt(sample_source, dtype = str, delimiter = "x"*100)
+                
+                elif (sample_source.endswith(".root")) :
+                    
+                    l_sample_file = glob.glob(sample_source)
+                
+                l_sample_file = utils.natural_sort(l_sample_file)
+                
                 l_sample_filename = [entry.split("/")[-1] for entry in l_sample_file]
                 
-                print("l_sample_file:\n", "\n".join(l_sample_file))
+                print(f"l_sample_file [{sample_source}]:\n", "\n".join(l_sample_file))
                 
                 tree_sample = ROOT.TChain(d_curve[type_key]["tree"])
                 
@@ -177,13 +171,18 @@ def main() :
                 # Need to keep a reference to the tree chain
                 l_tree_sample.append(tree_sample)
                 
-                
                 rdframe_sample = ROOT.RDataFrame(tree_sample)
                 
-                weight_expr_sample = weight_expr
-                l_sample_norm[iSample] = float(sample_weight)/tree_sample.GetEntries()
-                
-                #rdframe_sample = rdframe_sample.Define(final_weight_name, weight_expr_sample)
+                if ("event_no_br" in d_curve) :
+                    
+                    event_no_br = d_curve["event_no_br"]
+                    a_event_no = rdframe_sample.Take["long long"](event_no_br).GetValue()
+                    nevent = len(numpy.unique(a_event_no))
+                    l_sample_norm[iSample] = float(sample_weight)/nevent
+                    
+                else :
+                    
+                    l_sample_norm[iSample] = float(sample_weight)/tree_sample.GetEntries()
                 
                 d_rdframe[type_key].append(rdframe_sample)
             

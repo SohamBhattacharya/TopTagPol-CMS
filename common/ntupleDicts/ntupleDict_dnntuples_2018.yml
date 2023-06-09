@@ -1,11 +1,12 @@
 
+# Cross-sections (weights) in pb
+
 ZprimeToTTJets_M1000_W10:
     names:
         - "ZprimeToTTJets_M1000_W10_TuneCP2_13TeV-madgraphMLM-pythia8"
     weights:
         - 1.0
     event_no_br: "event_no"
-
 
 ZprimeToTTJets_M6000_W60:
     names:
@@ -14,7 +15,6 @@ ZprimeToTTJets_M6000_W60:
         - 1.0
     event_no_br: "event_no"
 
-
 ZprimeToTT_M3000_W30:
     names:
         - "ZprimeToTT_M3000_W30_TuneCP2_PSweights_13TeV-madgraph-pythiaMLM-pythia8"
@@ -22,8 +22,67 @@ ZprimeToTT_M3000_W30:
         - 1.0
     event_no_br: "event_no"
 
+Wprimetotb_M3000W30_LH:
+    names:
+        - "Wprimetotb_M3000W30_LH_TuneCP5_13TeV-madgraph-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
 
-QCD:
+Wprimetotb_M3000W30_RH:
+    names:
+        - "Wprimetotb_M3000W30_RH_TuneCP5_13TeV-madgraph-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
+
+Wprimetotb_M6000W60_LH:
+    names:
+        - "Wprimetotb_M6000W60_LH_TuneCP5_13TeV-madgraph-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
+
+Wprimetotb_M6000W60_RH:
+    names:
+        - "Wprimetotb_M6000W60_RH_TuneCP5_13TeV-madgraph-pythia8"
+    weights:
+        - 1.0
+    event_no_br: "event_no"
+
+
+ST_t-channel:
+    names:
+      - "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-pythia8"
+      - "ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-pythia8"
+    weights:
+        - 80.950
+        - 136.020
+    event_no_br: "event_no"
+
+TTJets_HT:
+    names:
+      - "TTJets_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8"
+      - "TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8"
+      - "TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8"
+      - "TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8"
+    weights:
+        - 1.821
+        - 0.7532
+        - 0.1316
+        - 0.001407
+    event_no_br: "event_no"
+
+TT_Mtt:
+    names:
+      - "TT_Mtt-700to1000_TuneCP5_13TeV-powheg-pythia8"
+      - "TT_Mtt-1000toInf_TuneCP5_13TeV-powheg-pythia8"
+    weights:
+        - 66.85
+        - 16.42
+    event_no_br: "event_no"
+
+QCD_Pt:
     names:
         - "QCD_Pt_300to470_TuneCP5_13TeV_pythia8"
         - "QCD_Pt_470to600_TuneCP5_13TeV_pythia8"

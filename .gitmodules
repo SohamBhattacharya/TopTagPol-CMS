@@ -4,3 +4,6 @@
 [submodule "weaver-core"]
 	path = weaver-core
 	url = git@github.com:SohamBhattacharya/weaver-core.git
+[submodule "Analysis/KLFitter"]
+	path = Analysis/KLFitter
+	url = git@github.com:SohamBhattacharya/KLFitter.git

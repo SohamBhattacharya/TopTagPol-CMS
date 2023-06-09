@@ -406,6 +406,7 @@ def root_plot1D(
     legendpos = "UR",
     legendncol = 1,
     legendtextsize = 0.04,
+    legendtitle = "",
     legendheightscale = 1.0, legendwidthscale = 1.0,
     lumiText = "(13 TeV)",
     cmsExtraText = "Simulation Preliminary",
@@ -457,6 +458,7 @@ def root_plot1D(
         exit(1)
     
     
+    legend.SetHeader(legendtitle, "C")
     legend.SetNColumns(legendncol)
     legend.SetFillStyle(0)
     legend.SetBorderSize(0)

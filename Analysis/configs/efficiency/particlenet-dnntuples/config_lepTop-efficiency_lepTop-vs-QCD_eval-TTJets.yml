@@ -1,0 +1,201 @@
+
+samples:
+    
+    TTJets:
+        names:
+            - "TTJets_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8:DeepNtuplesAK8-v4"
+            - "TTJets_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8:DeepNtuplesAK8-v4"
+            - "TTJets_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8:DeepNtuplesAK8-v4"
+            - "TTJets_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8:DeepNtuplesAK8-v4"
+        weights:
+            - 1.821
+            - 0.7532
+            - 0.1316
+            - 0.001407
+    
+    Zprime_M6000_W60:
+        names:
+            - "ZprimeToTTJets_M6000_W60_TuneCP2_13TeV-madgraphMLM-pythia8:DeepNtuplesAK8-v4"
+        weights:
+            - 1.0
+    
+    QCD:
+        names:
+            - "QCD_Pt_300to470_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_470to600_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_600to800_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_800to1000_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_3200toInf_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+
+        weights:
+            - 6826.0
+            - 552.6
+            - 156.6
+            - 26.32
+            - 7.5
+            - 0.6479
+            - 0.08715
+            - 0.005242
+
+curves:
+    
+    -   label: "AK8 t^{lep} jets [t#bar{t}, logit(o) > 6]"
+        num:
+            sample:         "TTJets"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 6) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        den:
+            sample:         "TTJets"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) / (((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) + (pfParticleNetJetTags_probQCDbb + pfParticleNetJetTags_probQCDcc + pfParticleNetJetTags_probQCDb + pfParticleNetJetTags_probQCDc + pfParticleNetJetTags_probQCDothers))"
+        event_no_br:        "event_no"
+        color: 2
+        linestyle: 1
+    
+    
+    -   label: "AK8 t^{lep} jets [Z'_{6 TeV}, logit(o) > 6]"
+        num:
+            sample:         "Zprime_M6000_W60"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 6) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        den:
+            sample:         "Zprime_M6000_W60"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) / (((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) + (pfParticleNetJetTags_probQCDbb + pfParticleNetJetTags_probQCDcc + pfParticleNetJetTags_probQCDb + pfParticleNetJetTags_probQCDc + pfParticleNetJetTags_probQCDothers))"
+        event_no_br:        "event_no"
+        color: 2
+        linestyle: 7
+    
+    
+    -   label: "AK8 t^{lep} jets [t#bar{t}, logit(o) > 9]"
+        num:
+            sample:         "TTJets"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 9) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        den:
+            sample:         "TTJets"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) / (((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) + (pfParticleNetJetTags_probQCDbb + pfParticleNetJetTags_probQCDcc + pfParticleNetJetTags_probQCDb + pfParticleNetJetTags_probQCDc + pfParticleNetJetTags_probQCDothers))"
+        event_no_br:        "event_no"
+        color: 4
+        linestyle: 1
+    
+    
+    -   label: "AK8 t^{lep} jets [Z'_{6 TeV}, logit(o) > 9]"
+        num:
+            sample:         "Zprime_M6000_W60"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 9) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        den:
+            sample:         "Zprime_M6000_W60"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) / (((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) + (pfParticleNetJetTags_probQCDbb + pfParticleNetJetTags_probQCDcc + pfParticleNetJetTags_probQCDb + pfParticleNetJetTags_probQCDc + pfParticleNetJetTags_probQCDothers))"
+        event_no_br:        "event_no"
+        color: 4
+        linestyle: 7
+    
+    
+    -   label: "AK8 t^{lep} jets [t#bar{t}, logit(o) > 11]"
+        num:
+            sample:         "TTJets"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 11) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        den:
+            sample:         "TTJets"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) / (((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) + (pfParticleNetJetTags_probQCDbb + pfParticleNetJetTags_probQCDcc + pfParticleNetJetTags_probQCDb + pfParticleNetJetTags_probQCDc + pfParticleNetJetTags_probQCDothers))"
+        event_no_br:        "event_no"
+        color: 6
+        linestyle: 1
+    
+    
+    -   label: "AK8 t^{lep} jets [Z'_{6 TeV}, logit(o) > 11]"
+        num:
+            sample:         "Zprime_M6000_W60"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 11) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        den:
+            sample:         "Zprime_M6000_W60"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_gen_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_Top_bele || label_Top_bmu)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) / (((pfParticleNetJetTags_probTbel + pfParticleNetJetTags_probTbmu)) + (pfParticleNetJetTags_probQCDbb + pfParticleNetJetTags_probQCDcc + pfParticleNetJetTags_probQCDb + pfParticleNetJetTags_probQCDc + pfParticleNetJetTags_probQCDothers))"
+        event_no_br:        "event_no"
+        color: 6
+        linestyle: 7
+    
+
+#bins: "numpy.concatenate([numpy.arange(0.0, 1500.0, 100), numpy.arange(1500.0, 2500.0, 500), numpy.array([3000, 5000])], axis = None)"
+#bins: "numpy.concatenate([numpy.arange(0.0, 2000.0, 100), numpy.arange(2000.0, 10000.0, 500)], axis = None)"
+bins: "numpy.concatenate([numpy.arange(0.0, 2000.0, 200), numpy.arange(2000.0, 3000.0, 500), numpy.arange(3000.0, 10000.0, 1000)], axis = None)"
+#bins: "numpy.concatenate([numpy.arange(0.0, 10000.0, 100)], axis = None)"
+
+xtitle: "t^{lep}_{gen} p_{T} [GeV]"
+ytitle: "Tagging efficiency"
+xrange:
+    - 0.0
+    - 3000.0
+yrange:
+    - 0.0
+    - 2.0
+logx: false
+logy: false
+gridx: true
+gridy: true
+legendpos: "UL"
+legendncol: 1
+legendtextsize: 0.03
+cpufrac: 0.9
+outname: "lepTop-efficiency_vs_genTop-pT_eval-TTJets"
+outtag: ""
+outdir: "plots/efficiencies/particlenet-dnntuples/2018"

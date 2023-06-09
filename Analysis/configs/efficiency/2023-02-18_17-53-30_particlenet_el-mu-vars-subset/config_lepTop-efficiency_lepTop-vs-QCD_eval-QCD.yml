@@ -1,0 +1,118 @@
+
+samples:
+    
+    QCD:
+        names:
+            - "QCD_Pt_300to470_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_470to600_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_600to800_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_800to1000_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_1000to1400_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_1400to1800_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_1800to2400_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_2400to3200_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+            - "QCD_Pt_3200toInf_TuneCP5_13TeV_pythia8:DeepNtuplesAK8-v4"
+
+        weights:
+            - 6826.0
+            - 552.6
+            - 156.6
+            - 26.32
+            - 7.5
+            - 0.6479
+            - 0.08715
+            - 0.005242
+            - 0.0001357
+
+curves:
+    
+    -   label: "AK8 QCD jets [logit(o) > 7]"
+        num:
+            sample:         "QCD"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 7) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_QCD_bb || label_QCD_cc || label_QCD_b || label_QCD_c || label_QCD_others)"
+        den:
+            sample:         "QCD"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_QCD_bb || label_QCD_cc || label_QCD_b || label_QCD_c || label_QCD_others)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "(score_label_Top_bele + score_label_Top_bmu) / ((score_label_Top_bele + score_label_Top_bmu) + (score_label_QCD_bb + score_label_QCD_cc + score_label_QCD_b + score_label_QCD_c + score_label_QCD_others))"
+        event_no_br:        "event_no"
+        color: 2
+        linestyle: 1
+    
+    
+    -   label: "AK8 QCD jets [logit(o) > 10]"
+        num:
+            sample:         "QCD"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 10) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_QCD_bb || label_QCD_cc || label_QCD_b || label_QCD_c || label_QCD_others)"
+        den:
+            sample:         "QCD"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_QCD_bb || label_QCD_cc || label_QCD_b || label_QCD_c || label_QCD_others)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "(score_label_Top_bele + score_label_Top_bmu) / ((score_label_Top_bele + score_label_Top_bmu) + (score_label_QCD_bb + score_label_QCD_cc + score_label_QCD_b + score_label_QCD_c + score_label_QCD_others))"
+        event_no_br:        "event_no"
+        color: 4
+        linestyle: 1
+    
+    
+    -   label: "AK8 QCD jets [logit(o) > 12]"
+        num:
+            sample:         "QCD"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_pt"
+            weight:         "(log(max(1e-32, {classifier})/max(1.0e-32, 1.0-{classifier})) > 12) && ({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_QCD_bb || label_QCD_cc || label_QCD_b || label_QCD_c || label_QCD_others)"
+        den:
+            sample:         "QCD"
+            tree:           "Events"
+            source:         "/nfs/dust/cms/user/sobhatta/work/TopTagPol/weaver-core/output/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/prediction/result_best_epoch_state/{tag}/{sample}/*.root"
+            plot:           "fj_pt"
+            weight:         "({jet}_pt > 400) && (abs({jet}_eta) < 2.5) && (label_QCD_bb || label_QCD_cc || label_QCD_b || label_QCD_c || label_QCD_others)"
+        friends: []
+        vardict:
+            jet:            "fj"
+            classifier:     "(score_label_Top_bele + score_label_Top_bmu) / ((score_label_Top_bele + score_label_Top_bmu) + (score_label_QCD_bb + score_label_QCD_cc + score_label_QCD_b + score_label_QCD_c + score_label_QCD_others))"
+        event_no_br:        "event_no"
+        color: 6
+        linestyle: 1
+    
+
+#bins: "numpy.concatenate([numpy.arange(0.0, 1500.0, 100), numpy.arange(1500.0, 2500.0, 500), numpy.array([3000, 5000])], axis = None)"
+#bins: "numpy.concatenate([numpy.arange(0.0, 2000.0, 100), numpy.arange(2000.0, 10000.0, 500)], axis = None)"
+bins: "numpy.concatenate([numpy.arange(0.0, 2000.0, 200), numpy.arange(2000.0, 3000.0, 500), numpy.arange(3000.0, 10000.0, 1000)], axis = None)"
+#bins: "numpy.concatenate([numpy.arange(0.0, 10000.0, 100)], axis = None)"
+
+xtitle: "jet p_{T} [GeV]"
+ytitle: "Mistagging probability"
+xrange:
+    - 0.0
+    - 3000.0
+yrange:
+    - 1.0e-7
+    - 1.0e-3
+logx: false
+logy: true
+gridx: true
+gridy: true
+legendpos: "UL"
+legendncol: 1
+legendtextsize: 0.03
+cpufrac: 0.9
+outname: "lepTop-efficiency_vs_jet-pT_eval-QCD"
+outtag: ""
+outdir: "plots/efficiencies/2023-02-18_17-53-30_particlenet_el-mu-vars-subset/2018"
