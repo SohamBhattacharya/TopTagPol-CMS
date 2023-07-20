@@ -1,9 +1,11 @@
 [submodule "run_DNNTuples/DNNTuples"]
 	path = run_DNNTuples/DNNTuples
 	url = git@github.com:SohamBhattacharya/DNNTuples.git
+    branch = prod/UL/10_6_X_MiniAODv2
 [submodule "weaver-core"]
 	path = weaver-core
 	url = git@github.com:SohamBhattacharya/weaver-core.git
+    branch = main
 [submodule "Analysis/KLFitter"]
 	path = Analysis/KLFitter
 	url = git@github.com:SohamBhattacharya/KLFitter.git
